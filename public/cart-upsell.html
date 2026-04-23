@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cafflora | Your Cart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#f2c4ce",
+                    "on-tertiary-container": "#884722",
+                    "on-surface": "#1c1c18",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#dddad4",
+                    "on-tertiary-fixed": "#341100",
+                    "on-primary-container": "#724f58",
+                    "secondary-fixed-dim": "#b1cfa9",
+                    "on-secondary-fixed-variant": "#344d30",
+                    "on-secondary-container": "#516b4c",
+                    "tertiary-container": "#ffc3a5",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#ffb690",
+                    "surface-container-highest": "#e6e2dc",
+                    "primary-fixed-dim": "#e8bbc5",
+                    "on-error-container": "#93000a",
+                    "outline": "#817476",
+                    "surface-container-high": "#ebe8e2",
+                    "outline-variant": "#d3c3c5",
+                    "primary": "#78555d",
+                    "surface-tint": "#78555d",
+                    "on-primary-fixed": "#2d131b",
+                    "on-tertiary-fixed-variant": "#723611",
+                    "secondary-container": "#cdebc4",
+                    "inverse-surface": "#31302d",
+                    "tertiary": "#8f4d27",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f4f0ea",
+                    "brand-espresso": "#3B2314",
+                    "secondary-fixed": "#cdebc4",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#4f4446",
+                    "on-primary-fixed-variant": "#5e3e46",
+                    "surface-variant": "#e6e2dc",
+                    "surface-bright": "#fdf9f3",
+                    "on-secondary-fixed": "#092008",
+                    "inverse-primary": "#e8bbc5",
+                    "on-background": "#1c1c18",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdbca",
+                    "surface": "#fdf9f3",
+                    "primary-fixed": "#ffd9e1",
+                    "surface-container": "#f1ede7",
+                    "secondary": "#4b6546",
+                    "surface-container-low": "#f7f3ed",
+                    "background": "#fdf9f3",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-serif { font-family: 'Noto Serif', serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 bg-[#FDF9F3] border-b border-brand-espresso/5">
+<div class="flex items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<!-- Left Zone -->
+<div class="flex-none">
+<a class="text-3xl font-serif italic text-brand-espresso" href="/home">Cafflora</a>
+</div>
+<!-- Center Zone -->
+<div class="flex-1 flex justify-start ml-16">
+<div class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide">
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/home">Home</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/menu">Menu</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/shop">Shop</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/discounts">Discounts</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/about">About</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/contact">Contact</a>
+</div>
+</div>
+<!-- Right Zone -->
+<div class="flex items-center space-x-10 flex-none">
+<!-- Sub-group A -->
+<div class="hidden lg:flex items-center space-x-6">
+<a class="text-brand-espresso/60 hover:text-brand-espresso transition-colors duration-200" href="/coffee">
+<span class="material-symbols-outlined text-2xl">coffee</span>
+</a>
+<a class="text-brand-espresso/60 hover:text-brand-espresso transition-colors duration-200" href="/books">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+</a>
+<a class="text-brand-espresso/60 hover:text-brand-espresso transition-colors duration-200" href="/flowers">
+<span class="material-symbols-outlined text-2xl">local_florist</span>
+</a>
+</div>
+<!-- Sub-group B -->
+<div class="flex items-center space-x-6">
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200 flex items-center" href="/cart">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+</a>
+<a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-brand-espresso hover:opacity-70 transition-opacity header-auth-link" id="header-auth-link" href="/sign-in">Sign In</a>
+<button type="button" id="header-logout-btn" class="hidden text-xs font-semibold text-brand-espresso/80 hover:opacity-70 underline underline-offset-2">Logout</button>
+</div>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-brand-espresso" onclick="document.getElementById('side-nav').classList.remove('translate-x-full')">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Mobile/Drawer) -->
+<div class="fixed inset-y-0 right-0 w-[88vw] max-w-96 z-[60] bg-[#FDF9F3] shadow-2xl translate-x-full transition-transform duration-500 ease-in-out" id="side-nav">
+<div class="flex flex-col h-full p-6">
+<div class="flex justify-between items-center mb-12">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">local_florist</span>
+</div>
+<div>
+<h2 class="text-2xl font-serif text-[#78555D]">The Botanical Atelier</h2>
+<p class="text-sm opacity-70">Curated Sanctuary</p>
+</div>
+</div>
+<button onclick="document.getElementById('side-nav').classList.add('translate-x-full')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-4 font-['Plus_Jakarta_Sans'] font-medium">
+<a class="bg-[#F2C4CE] text-[#78555D] rounded-full px-4 py-2 flex items-center gap-3" href="/home">
+<span class="material-symbols-outlined">home</span> Home
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/menu">
+<span class="material-symbols-outlined">restaurant_menu</span> Menu
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/shop">
+<span class="material-symbols-outlined">local_florist</span> Shop
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/discounts">
+<span class="material-symbols-outlined">local_offer</span> Discounts
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/about">
+<span class="material-symbols-outlined">info</span> About
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/contact">
+<span class="material-symbols-outlined">mail</span> Contact
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3 header-auth-link" id="header-auth-link-drawer" href="/sign-in">
+<span class="material-symbols-outlined">login</span><span class="header-auth-label">Sign In</span>
+                </a>
+</div>
+</div>
+</div>
+<main class="max-w-2xl mx-auto px-6 py-12 pb-40">
+<!-- Your Cart Section -->
+<section class="mb-16 pt-2">
+<h2 class="font-serif text-3xl italic mb-8 tracking-tight">Your Cart</h2>
+<div class="space-y-6" id="cart-items-container">
+<p class="text-on-surface-variant" id="cart-loading">Loading your cart...</p>
+</div>
+</section>
+<!-- Upsell Section -->
+<section class="mb-20">
+<h2 class="font-serif text-2xl italic mb-8 tracking-tight">Room for something else?</h2>
+<div class="flex overflow-x-auto hide-scrollbar space-x-6 pb-4 -mx-2 px-2" id="upsell-products-grid">
+<p class="text-sm text-on-surface-variant" id="upsell-loading">Curating suggestions...</p>
+</div>
+</section>
+</main>
+<!-- Sticky Checkout Footer -->
+<footer class="fixed bottom-0 left-0 w-full z-50 px-6 pb-10">
+<div class="max-w-xl mx-auto bg-surface-container-lowest/80 backdrop-blur-2xl rounded-3xl py-4 px-8 shadow-[0_-8px_32px_rgba(28,28,24,0.06)] border border-white/20">
+<div>
+<p class="text-xs uppercase tracking-[0.2em] font-bold text-on-surface-variant/60 mb-1">Total Balance</p>
+<div class="flex items-baseline space-x-2">
+<span class="font-bold text-lg text-on-surface" id="footer-items-count">0 Items</span>
+<span class="text-on-surface/20 text-xl">|</span>
+<span class="font-bold text-xl text-primary" id="footer-subtotal">$0.00</span>
+</div>
+</div>
+<div class="mt-3 mb-4 text-xs text-on-surface-variant/80 space-y-1" id="order-summary-breakdown">
+<div class="flex items-center justify-between"><span>Subtotal</span><span id="summary-subtotal">$0.00</span></div>
+<div class="flex items-center justify-between"><span>Shipping</span><span id="summary-shipping">$0.00</span></div>
+<div class="flex items-center justify-between font-bold text-on-surface"><span>Total</span><span id="summary-total">$0.00</span></div>
+</div>
+<a href="/checkout" class="inline-flex bg-[#78555D] hover:bg-[#5E3E46] text-white px-10 py-4 rounded-full font-bold text-sm tracking-widest transition-all active:scale-95 shadow-xl shadow-primary/20">
+                CHECKOUT
+            </a>
+</div>
+</footer>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-[60] flex justify-around items-center px-6 pb-4 pt-2 bg-[#FDF9F3]/80 backdrop-blur-3xl rounded-t-[2.5rem]">
+<button class="flex flex-col items-center justify-center text-[#1C1C18]/40 dark:text-[#FDF9F3]/40 hover:bg-[#F2C4CE]/50 transition-all px-4 py-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-sans text-[10px] font-bold uppercase tracking-widest mt-1">Sanctuary</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#1C1C18]/40 dark:text-[#FDF9F3]/40 hover:bg-[#F2C4CE]/50 transition-all px-4 py-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="local_florist">local_florist</span>
+<span class="font-sans text-[10px] font-bold uppercase tracking-widest mt-1">Atelier</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-[#F2C4CE] dark:bg-[#78555D] text-[#78555D] dark:text-[#F2C4CE] rounded-full px-6 py-2 scale-90">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-sans text-[10px] font-bold uppercase tracking-widest mt-1">Cart</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#1C1C18]/40 dark:text-[#FDF9F3]/40 hover:bg-[#F2C4CE]/50 transition-all px-4 py-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-sans text-[10px] font-bold uppercase tracking-widest mt-1">Profile</span>
+</button>
+</nav>
+<script>
+  const cartItemsContainer = document.getElementById('cart-items-container');
+  const cartLoading = document.getElementById('cart-loading');
+  const footerItemsCount = document.getElementById('footer-items-count');
+  const footerSubtotal = document.getElementById('footer-subtotal');
+  const summarySubtotal = document.getElementById('summary-subtotal');
+  const summaryShipping = document.getElementById('summary-shipping');
+  const summaryTotal = document.getElementById('summary-total');
+  const upsellProductsGrid = document.getElementById('upsell-products-grid');
+  const upsellLoading = document.getElementById('upsell-loading');
+  const SHIPPING_FEE = 5;
+  const FALLBACK_IMAGE = 'https://placehold.co/200x240/F1EDE7/78555D?text=Cafflora';
+  let isDeleting = false;
+
+  function escapeHtml(value) {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function getTokenOrRedirect() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      window.location.href = '/sign-in';
+      return null;
+    }
+    return token;
+  }
+
+  function formatUsd(value) {
+    const amount = Number(value) || 0;
+    return `$${amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  }
+
+  function renderCartItems(items) {
+    cartItemsContainer.innerHTML = '';
+
+    if (!items.length) {
+      cartItemsContainer.innerHTML = `
+        <div class="p-6 bg-surface-container-low rounded-xl">
+          <h3 class="font-serif text-xl mb-2">Your cart is empty</h3>
+          <p class="text-on-surface-variant text-sm">Visit the boutique to add coffee, flowers, and books.</p>
+        </div>
+      `;
+      return;
+    }
+
+    items.forEach((item) => {
+      const lineTotal = Number(item.line_total ?? (item.price * item.quantity));
+      const safeName = String(item.name || 'Product');
+      const card = document.createElement('div');
+      card.className = 'flex items-center justify-between p-6 bg-surface-container-low rounded-xl group hover:bg-surface-container-high transition-colors duration-300';
+      card.innerHTML = `
+        <div class="flex items-center space-x-6">
+          <div class="w-20 h-24 overflow-hidden rounded-md">
+            <img
+              alt="${safeName}"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              src="${item.image_url || FALLBACK_IMAGE}"
+            />
+          </div>
+          <div>
+            <h3 class="font-serif text-lg text-on-surface">${safeName}</h3>
+            <p class="text-on-surface-variant text-sm mt-1">${formatUsd(item.price)} each</p>
+            <button type="button" class="mt-2 inline-flex items-center gap-1 text-xs text-on-surface-variant/70 hover:text-primary transition-colors" data-remove-cart-id="${item.cart_id}" aria-label="Remove item">
+              <span class="material-symbols-outlined text-base">delete</span>
+              Remove
+            </button>
+          </div>
+        </div>
+        <div class="flex items-center space-x-2 bg-surface-container-lowest rounded-full px-4 py-2">
+          <span class="text-xs text-on-surface-variant">Qty</span>
+          <span class="text-sm font-bold text-on-surface">${item.quantity}</span>
+          <span class="text-on-surface/20 text-sm">|</span>
+          <span class="text-sm font-bold text-on-surface">${formatUsd(lineTotal)}</span>
+        </div>
+      `;
+      cartItemsContainer.appendChild(card);
+    });
+  }
+
+  function renderFooter(summary) {
+    const totalItems = Number(summary?.total_items) || 0;
+    const subtotal = Number(summary?.subtotal) || 0;
+    const shipping = totalItems > 0 ? SHIPPING_FEE : 0;
+    const total = subtotal + shipping;
+    footerItemsCount.textContent = `${totalItems} Item${totalItems === 1 ? '' : 's'}`;
+    footerSubtotal.textContent = formatUsd(total);
+    if (summarySubtotal) summarySubtotal.textContent = formatUsd(subtotal);
+    if (summaryShipping) summaryShipping.textContent = formatUsd(shipping);
+    if (summaryTotal) summaryTotal.textContent = formatUsd(total);
+  }
+
+  async function removeCartItem(cartId) {
+    if (isDeleting) return;
+    const token = getTokenOrRedirect();
+    if (!token) return;
+    isDeleting = true;
+
+    try {
+      const response = await fetch(`/api/cart/${cartId}`, {
+        method: 'DELETE',
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to remove item');
+      }
+
+      await loadCart();
+    } catch (error) {
+      console.error(error);
+      if (typeof window.showCartErrorToast === 'function') {
+        window.showCartErrorToast(error.message || 'Unable to remove this item right now.');
+      } else {
+        console.error(error.message || 'Unable to remove this item right now.');
+      }
+    } finally {
+      isDeleting = false;
+    }
+  }
+
+  async function loadCart() {
+    const token = getTokenOrRedirect();
+    if (!token) return;
+
+    try {
+      const response = await fetch('/api/cart', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to load cart');
+      }
+
+      renderCartItems(data.items || []);
+      renderFooter(data.summary || {});
+    } catch (error) {
+      console.error(error);
+      cartItemsContainer.innerHTML = `<p class="text-red-600">${error.message || 'Unable to load cart.'}</p>`;
+      renderFooter({ total_items: 0, subtotal: 0 });
+    } finally {
+      if (cartLoading) cartLoading.remove();
+    }
+  }
+
+  function shuffleProducts(products) {
+    const next = products.slice();
+    for (let i = next.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = next[i];
+      next[i] = next[j];
+      next[j] = temp;
+    }
+    return next;
+  }
+
+  function renderUpsellProducts(products) {
+    if (!upsellProductsGrid) return;
+    upsellProductsGrid.innerHTML = '';
+
+    if (!products.length) {
+      upsellProductsGrid.innerHTML = '<p class="text-sm text-on-surface-variant">No suggestions available right now.</p>';
+      return;
+    }
+
+    products.forEach((product) => {
+      const name = escapeHtml(product.name || 'Curated Product');
+      const image = escapeHtml(product.image_url || FALLBACK_IMAGE);
+      const price = formatUsd(product.price);
+      const id = Number(product.product_id) || 0;
+      const card = document.createElement('div');
+      card.className = 'flex-shrink-0 w-44';
+      card.innerHTML = `
+        <div class="relative group">
+          <div class="w-44 h-44 rounded-xl overflow-hidden mb-3 bg-surface-container">
+            <img alt="${name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="${image}"/>
+          </div>
+          <button class="absolute bottom-2 right-2 bg-primary text-on-primary w-8 h-8 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform plus-cart-btn add-to-cart-btn" data-id="${id}" data-action="add-to-cart" type="button">
+            <span class="material-symbols-outlined text-xl">add</span>
+          </button>
+        </div>
+        <h4 class="font-semibold text-sm text-on-surface">${name}</h4>
+        <p class="text-primary text-xs font-bold mt-1">${price}</p>
+      `;
+      upsellProductsGrid.appendChild(card);
+    });
+  }
+
+  async function loadUpsellProducts() {
+    if (!upsellProductsGrid) return;
+    try {
+      const response = await fetch('/api/products');
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Failed to load recommendations');
+      const products = Array.isArray(data) ? data.filter((p) => Number(p.product_id) > 0) : [];
+      const picked = shuffleProducts(products).slice(0, 3);
+      renderUpsellProducts(picked);
+    } catch (error) {
+      console.error(error);
+      renderUpsellProducts([]);
+    } finally {
+      if (upsellLoading) upsellLoading.remove();
+    }
+  }
+
+  cartItemsContainer.addEventListener('click', function (event) {
+    const removeBtn = event.target.closest('[data-remove-cart-id]');
+    if (!removeBtn) return;
+    event.preventDefault();
+    const cartId = Number(removeBtn.getAttribute('data-remove-cart-id'));
+    if (!Number.isInteger(cartId) || cartId < 1) return;
+    removeCartItem(cartId);
+  });
+
+  loadCart();
+  loadUpsellProducts();
+</script>
+<div id="cart-toast" class="fixed bottom-5 right-5 bg-brand-espresso text-brand-cream px-6 py-3 rounded-full shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-[100] flex items-center gap-2 pointer-events-none font-sans text-sm"><span class="material-symbols-outlined text-brand-sage">check_circle</span>Item gracefully added to your cart</div>
+<script src="/js/cart-global.js"></script>
+<script>
+(function () {
+    var authLinks = document.querySelectorAll('.header-auth-link');
+    var logoutBtn = document.getElementById('header-logout-btn');
+    var token = localStorage.getItem('token');
+    var userRaw = localStorage.getItem('user');
+    function firstNameFromUser(u) {
+        var name = (u && (u.full_name || u.name || '')) || '';
+        var parts = String(name).trim().split(/\s+/);
+        return parts[0] || 'Account';
+    }
+    function setSignedOut() {
+        authLinks.forEach(function (a) {
+            a.href = '/sign-in';
+            if (a.id === 'header-auth-link-drawer') {
+                var label = a.querySelector('.header-auth-label');
+                if (label) label.textContent = 'Sign In';
+            } else {
+                a.textContent = 'Sign In';
+            }
+        });
+        if (logoutBtn) logoutBtn.classList.add('hidden');
+    }
+    if (token && userRaw) {
+        try {
+            var user = JSON.parse(userRaw);
+            var fn = firstNameFromUser(user);
+            authLinks.forEach(function (a) {
+                a.href = '/profile';
+                if (a.id === 'header-auth-link-drawer') {
+                    var label = a.querySelector('.header-auth-label');
+                    if (label) label.textContent = fn;
+                } else {
+                    a.textContent = fn;
+                }
+            });
+            if (logoutBtn) {
+                logoutBtn.classList.remove('hidden');
+                logoutBtn.onclick = function () {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                    window.location.href = '/home';
+                };
+            }
+        } catch (e) {
+            setSignedOut();
+        }
+    } else {
+        setSignedOut();
+    }
+})();
+</script>
+<div id="legal-modal" class="hidden fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm p-4 md:p-8"><div id="legal-modal-backdrop" class="absolute inset-0" aria-hidden="true"></div><div class="relative mx-auto mt-8 md:mt-16 w-full max-w-3xl rounded-3xl bg-surface shadow-2xl shadow-black/20 overflow-hidden"><button id="legal-modal-close" type="button" class="absolute right-4 top-4 h-10 w-10 rounded-full text-on-surface-variant hover:bg-surface-container transition-colors" aria-label="Close modal"><span class="text-2xl leading-none">&times;</span></button><div class="px-6 md:px-10 pt-8 pb-6 border-b border-outline-variant/20"><h2 id="legal-modal-title" class="text-3xl md:text-4xl text-on-surface pr-12" style="font-family: 'Noto Serif', serif;">Legal Information</h2></div><div id="legal-modal-body" class="px-6 md:px-10 py-6 max-h-[65vh] overflow-y-auto text-on-surface-variant leading-relaxed space-y-4" style="font-family: 'Plus Jakarta Sans', sans-serif;"></div></div></div>
+<script>(function(){var m=document.getElementById('legal-modal'),t=document.getElementById('legal-modal-title'),b=document.getElementById('legal-modal-body'),c=document.getElementById('legal-modal-close');if(!m||!t||!b||!c)return;var r=/(privacy|terms|shipping|sustainability|refund)/i,links=Array.prototype.slice.call(document.querySelectorAll('footer a')).filter(function(l){return r.test((l.textContent||'').trim());});if(!links.length)return;function html(){return['<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere risus vel arcu feugiat, et faucibus lectus tincidunt. Curabitur aliquet, urna in tincidunt viverra, neque erat dictum sapien, vitae vehicula nulla libero et eros.</p>','<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>','<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>'].join('');}function open(title){t.textContent=title;b.innerHTML=html();m.classList.remove('hidden');document.body.classList.add('overflow-hidden');}function close(){m.classList.add('hidden');document.body.classList.remove('overflow-hidden');}links.forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();open((l.textContent||'Legal Information').trim());});});c.addEventListener('click',close);m.addEventListener('click',function(e){if(e.target===m||e.target.id==='legal-modal-backdrop')close();});})();</script>
+</body></html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign In | Cafflora Botanical Atelier</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="/js/ui-toast.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#31302d",
+                    "on-primary-fixed": "#2d131b",
+                    "surface-variant": "#e6e2dc",
+                    "outline-variant": "#d3c3c5",
+                    "on-error-container": "#93000a",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#ebe8e2",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb690",
+                    "tertiary-container": "#ffc3a5",
+                    "on-background": "#1c1c18",
+                    "on-surface": "#1c1c18",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#5e3e46",
+                    "on-secondary-fixed-variant": "#344d30",
+                    "error-container": "#ffdad6",
+                    "secondary": "#4b6546",
+                    "primary-fixed": "#ffd9e1",
+                    "on-surface-variant": "#4f4446",
+                    "on-tertiary-fixed": "#341100",
+                    "on-tertiary-container": "#884722",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#fdf9f3",
+                    "inverse-on-surface": "#f4f0ea",
+                    "secondary-fixed": "#cdebc4",
+                    "tertiary-fixed": "#ffdbca",
+                    "tertiary": "#8f4d27",
+                    "error": "#ba1a1a",
+                    "surface-container": "#f1ede7",
+                    "primary": "#78555d",
+                    "surface-dim": "#dddad4",
+                    "primary-container": "#f2c4ce",
+                    "on-primary-container": "#724f58",
+                    "on-secondary-container": "#516b4c",
+                    "outline": "#817476",
+                    "surface": "#fdf9f3",
+                    "secondary-fixed-dim": "#b1cfa9",
+                    "on-secondary-fixed": "#092008",
+                    "inverse-primary": "#e8bbc5",
+                    "primary-fixed-dim": "#e8bbc5",
+                    "surface-tint": "#78555d",
+                    "surface-container-low": "#f7f3ed",
+                    "on-tertiary-fixed-variant": "#723611",
+                    "surface-container-highest": "#e6e2dc",
+                    "surface-bright": "#fdf9f3",
+                    "secondary-container": "#cdebc4",
+                    "brand-espresso": "#3B2314"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FDF9F3;
+        }
+        .serif-italic {
+            font-family: 'Noto Serif', serif;
+            font-style: italic;
+        }
+        .input-atelier {
+            border: none;
+            border-bottom: 2px solid rgba(59, 35, 20, 0.2);
+            background: transparent;
+            border-radius: 0;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .input-atelier:focus {
+            outline: none;
+            box-shadow: none;
+            border-bottom-color: #78555D;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#FDF9F3]/90 backdrop-blur-sm border-b border-brand-espresso/5">
+<div class="max-w-7xl mx-auto px-6 sm:px-8 py-6">
+<a class="text-3xl font-serif italic text-brand-espresso hover:opacity-90 transition-opacity inline-block" href="/home">Cafflora</a>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center px-6 pt-24 pb-12">
+<div class="grid md:grid-cols-2 max-w-5xl w-full bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<!-- Left Side: Visual/Atmosphere -->
+<div class="hidden md:block relative h-full min-h-[600px]">
+<img alt="Botanical Cafe Interior" class="absolute inset-0 w-full h-full object-cover" data-alt="Soft focused interior of a botanical cafe with vintage wooden tables, lush green ferns, and warm sunlight streaming through large windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_NTQjVw0jrSJtSWXUNUgUTaKOtjbvv1ZPy3QHa7zJQY2Ipfnhwqx0qjhlnr6qCdgNrJVqXHfGpo7L6vWNcmhqgjoGzK-ETrp8bMuzhSbUcUcSycQYMm-9-tt00xnuXQZXKVL5W85xwbEcuhNMWcF1ZZbpeuoMkTBOjS3XnBwXnAVq1HWK6vhEQZt9ONT2291rYHrLAaKD448jLCGJyq_2mRES9vAk_l9eiFpXEX06AmIwfSPimANTI965ebCHqck4solFF8jNk_pb"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+<div class="absolute bottom-12 left-12 right-12 text-on-primary">
+<p class="serif-italic text-3xl leading-relaxed">"Where every bloom tells a story and every cup holds a secret."</p>
+<p class="mt-4 font-label uppercase tracking-widest text-xs opacity-80">Botanical Atelier Est. 2024</p>
+</div>
+</div>
+<!-- Right Side: Sign In Form -->
+<div class="p-8 md:p-16 flex flex-col justify-center">
+<div class="max-w-sm mx-auto w-full">
+<header class="mb-10">
+<h1 class="text-4xl serif-italic text-on-surface mb-2">Welcome Back</h1>
+<p class="text-on-surface-variant font-body">Step back into our curated sanctuary.</p>
+</header>
+<form class="space-y-8">
+<div class="group">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1 font-label" for="email">
+                                Email Address
+                            </label>
+<input class="input-atelier w-full py-3 text-on-surface placeholder:text-outline-variant/50 focus:ring-0 transition-all duration-300" id="email" name="email" placeholder="atelier@cafflora.com" type="email"/>
+</div>
+<div class="group">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1 font-label" for="password">
+                                Password
+                            </label>
+<div class="relative">
+<input class="input-atelier w-full py-3 text-on-surface placeholder:text-outline-variant/50 focus:ring-0 transition-all duration-300" id="password" name="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-0 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors" type="button" id="password-toggle-btn" aria-label="Toggle password visibility">
+<span class="material-symbols-outlined text-sm" id="password-toggle-icon">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="rounded-sm border-outline-variant text-primary focus:ring-primary-container w-4 h-4" type="checkbox"/>
+<span class="text-xs text-on-surface-variant font-body">Remember me</span>
+</label>
+</div>
+<div class="pt-4">
+<button class="w-full bg-primary-container text-on-primary-container font-label font-bold py-4 rounded-full hover:opacity-90 active:scale-95 transition-all duration-200 shadow-sm flex items-center justify-center gap-2" type="submit">
+                                Sign In
+                                <span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</form>
+<footer class="mt-12 text-center">
+<p class="text-on-surface-variant text-sm font-body">
+                            New to Cafflora? 
+                            <a class="text-primary font-semibold underline decoration-primary-fixed-dim underline-offset-4 hover:decoration-primary transition-all" href="/sign-up">Sign up here.</a>
+</p>
+</footer>
+<div class="mt-10 flex items-center gap-4">
+<div class="h-px flex-1 bg-surface-variant"></div>
+<span class="text-[10px] uppercase tracking-tighter text-outline font-label">Or join with</span>
+<div class="h-px flex-1 bg-surface-variant"></div>
+</div>
+<div class="mt-6 grid grid-cols-2 gap-4">
+<a class="flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface text-sm font-label" href="/api/auth/google/login">
+<span class="material-symbols-outlined text-base" data-icon="google">google</span>
+                            Google
+                        </a>
+<a class="flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface text-sm font-label" href="/api/auth/apple/login">
+<span class="material-symbols-outlined text-base" data-icon="apple" data-weight="fill">ios</span>
+                            Apple
+                        </a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-dim dark:bg-stone-900 w-full mt-auto py-12 flex flex-col items-center gap-6 px-8">
+<a class="text-lg font-bold text-on-surface font-headline uppercase tracking-[0.2em] hover:opacity-75 transition-opacity" href="/home">Cafflora</a>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Contact Us</a>
+</div>
+<p class="text-on-surface-variant font-body text-xs uppercase tracking-widest opacity-60">© 2024 Cafflora Botanical Atelier</p>
+</footer>
+<script>
+    const form = document.querySelector('form');
+    
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // Page reload hone se rokein
+  
+      // User ka data nikalna
+      const email = document.querySelector('input[type="email"]').value;
+      const password = document.getElementById('password').value;
+      
+      try {
+        // Backend ko login request bhejna
+        const response = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+              email: email, 
+              password: password 
+          })
+        });
+  
+        const data = await response.json();
+  
+        if (response.ok) {
+          // Login Successful!
+          // Digital ID card (Token) ko browser mein save karein
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
+          
+          // Login hone ke baad user ko sidha unke naye "Cart & Upsell" ya "Shop" page pe bhej dein
+          if (typeof window.showAppToast === 'function') {
+            window.showAppToast('Welcome back, ' + (data.user.full_name || '') + '!', 'success');
+          }
+          window.location.href = '/home'; // Ya '/home' jahan aap chahein
+        } else {
+          // Error (jaise galat password)
+          if (typeof window.showAppToast === 'function') window.showAppToast('Login failed: ' + (data.error || 'Unknown error'), 'error');
+        }
+      } catch (err) {
+        console.error(err);
+        if (typeof window.showAppToast === 'function') window.showAppToast('Something went wrong with the server.', 'error');
+      }
+    });
+  </script>
+<script>
+(function () {
+    var pwd = document.getElementById('password');
+    var btn = document.getElementById('password-toggle-btn');
+    var icon = document.getElementById('password-toggle-icon');
+    if (!pwd || !btn || !icon) return;
+    btn.addEventListener('click', function () {
+        var showing = pwd.type === 'text';
+        pwd.type = showing ? 'password' : 'text';
+        icon.textContent = showing ? 'visibility' : 'visibility_off';
+    });
+})();
+</script>
+<div id="legal-modal" class="hidden fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm p-4 md:p-8"><div id="legal-modal-backdrop" class="absolute inset-0" aria-hidden="true"></div><div class="relative mx-auto mt-8 md:mt-16 w-full max-w-3xl rounded-3xl bg-surface shadow-2xl shadow-black/20 overflow-hidden"><button id="legal-modal-close" type="button" class="absolute right-4 top-4 h-10 w-10 rounded-full text-on-surface-variant hover:bg-surface-container transition-colors" aria-label="Close modal"><span class="text-2xl leading-none">&times;</span></button><div class="px-6 md:px-10 pt-8 pb-6 border-b border-outline-variant/20"><h2 id="legal-modal-title" class="text-3xl md:text-4xl text-on-surface pr-12" style="font-family: 'Noto Serif', serif;">Legal Information</h2></div><div id="legal-modal-body" class="px-6 md:px-10 py-6 max-h-[65vh] overflow-y-auto text-on-surface-variant leading-relaxed space-y-4" style="font-family: 'Plus Jakarta Sans', sans-serif;"></div></div></div>
+<script>(function(){var m=document.getElementById('legal-modal'),t=document.getElementById('legal-modal-title'),b=document.getElementById('legal-modal-body'),c=document.getElementById('legal-modal-close');if(!m||!t||!b||!c)return;var r=/(privacy|terms|shipping|sustainability|refund)/i,links=Array.prototype.slice.call(document.querySelectorAll('footer a')).filter(function(l){return r.test((l.textContent||'').trim());});if(!links.length)return;function html(){return['<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere risus vel arcu feugiat, et faucibus lectus tincidunt. Curabitur aliquet, urna in tincidunt viverra, neque erat dictum sapien, vitae vehicula nulla libero et eros.</p>','<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>','<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>'].join('');}function open(title){t.textContent=title;b.innerHTML=html();m.classList.remove('hidden');document.body.classList.add('overflow-hidden');}function close(){m.classList.add('hidden');document.body.classList.remove('overflow-hidden');}links.forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();open((l.textContent||'Legal Information').trim());});});c.addEventListener('click',close);m.addEventListener('click',function(e){if(e.target===m||e.target.id==='legal-modal-backdrop')close();});})();</script>
+</body></html>

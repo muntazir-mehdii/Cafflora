@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><title>F - Discounts</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="/js/ui-toast.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#ffc3a5",
+                        "secondary-container": "#cdebc4",
+                        "primary-fixed-dim": "#e8bbc5",
+                        "on-secondary-fixed": "#092008",
+                        "on-background": "#1c1c18",
+                        "surface-container-high": "#ebe8e2",
+                        "on-surface": "#1c1c18",
+                        "outline-variant": "#d3c3c5",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dddad4",
+                        "primary": "#78555d",
+                        "tertiary-fixed-dim": "#ffb690",
+                        "primary-fixed": "#ffd9e1",
+                        "on-surface-variant": "#4f4446",
+                        "surface-container-low": "#f7f3ed",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#e8bbc5",
+                        "surface-bright": "#fdf9f3",
+                        "on-secondary-container": "#516b4c",
+                        "on-tertiary-fixed-variant": "#723611",
+                        "surface-container": "#f1ede7",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#2d131b",
+                        "on-tertiary-fixed": "#341100",
+                        "tertiary": "#8f4d27",
+                        "surface-tint": "#78555d",
+                        "on-secondary-fixed-variant": "#344d30",
+                        "surface-container-highest": "#e6e2dc",
+                        "on-primary-container": "#724f58",
+                        "tertiary-fixed": "#ffdbca",
+                        "secondary-fixed-dim": "#b1cfa9",
+                        "primary-container": "#f2c4ce",
+                        "background": "#fdf9f3",
+                        "surface": "#fdf9f3",
+                        "outline": "#817476",
+                        "on-error-container": "#93000a",
+                        "secondary": "#4b6546",
+                        "secondary-fixed": "#cdebc4",
+                        "inverse-surface": "#31302d",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e6e2dc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#884722",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#5e3e46",
+                        "inverse-on-surface": "#f4f0ea",
+                        "brand-espresso": "#3B2314"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 10px 32px -4px rgba(28, 28, 24, 0.06);
+        }
+        .glass-nav {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 bg-[#FDF9F3] border-b border-brand-espresso/5">
+<div class="flex items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<!-- Left Zone -->
+<div class="flex-none">
+<a class="text-3xl font-serif italic text-brand-espresso" href="/home">Cafflora</a>
+</div>
+<!-- Center Zone -->
+<div class="flex-1 flex justify-start ml-16">
+<div class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide">
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/home">Home</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/menu">Menu</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/shop">Shop</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/discounts">Discounts</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/about">About</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/contact">Contact</a>
+</div>
+</div>
+<!-- Right Zone -->
+<div class="flex items-center space-x-10 flex-none">
+<!-- Sub-group A -->
+<div class="hidden lg:flex items-center space-x-6">
+<a class="text-brand-espresso/60 hover:text-brand-espresso transition-colors duration-200" href="/coffee">
+<span class="material-symbols-outlined text-2xl">coffee</span>
+</a>
+<a class="text-brand-espresso/60 hover:text-brand-espresso transition-colors duration-200" href="/books">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+</a>
+<a class="text-brand-espresso/60 hover:text-brand-espresso transition-colors duration-200" href="/flowers">
+<span class="material-symbols-outlined text-2xl">local_florist</span>
+</a>
+</div>
+<!-- Sub-group B -->
+<div class="flex items-center space-x-6">
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200 flex items-center" href="/cart">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+</a>
+<a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-brand-espresso hover:opacity-70 transition-opacity header-auth-link" id="header-auth-link" href="/sign-in">Sign In</a>
+<button type="button" id="header-logout-btn" class="hidden text-xs font-semibold text-brand-espresso/80 hover:opacity-70 underline underline-offset-2">Logout</button>
+</div>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-brand-espresso" onclick="document.getElementById('side-nav').classList.remove('translate-x-full')">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Mobile/Drawer) -->
+<div class="fixed inset-y-0 right-0 w-[88vw] max-w-96 z-[60] bg-[#FDF9F3] shadow-2xl translate-x-full transition-transform duration-500 ease-in-out" id="side-nav">
+<div class="flex flex-col h-full p-6">
+<div class="flex justify-between items-center mb-12">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">local_florist</span>
+</div>
+<div>
+<h2 class="text-2xl font-serif text-[#78555D]">The Botanical Atelier</h2>
+<p class="text-sm opacity-70">Curated Sanctuary</p>
+</div>
+</div>
+<button onclick="document.getElementById('side-nav').classList.add('translate-x-full')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-4 font-['Plus_Jakarta_Sans'] font-medium">
+<a class="bg-[#F2C4CE] text-[#78555D] rounded-full px-4 py-2 flex items-center gap-3" href="/home">
+<span class="material-symbols-outlined">home</span> Home
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/menu">
+<span class="material-symbols-outlined">restaurant_menu</span> Menu
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/shop">
+<span class="material-symbols-outlined">local_florist</span> Shop
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/discounts">
+<span class="material-symbols-outlined">local_offer</span> Discounts
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/about">
+<span class="material-symbols-outlined">info</span> About
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/contact">
+<span class="material-symbols-outlined">mail</span> Contact
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3 header-auth-link" id="header-auth-link-drawer" href="/sign-in">
+<span class="material-symbols-outlined">login</span><span class="header-auth-label">Sign In</span>
+                </a>
+</div>
+</div>
+</div>
+<main class="pt-24 pb-20">
+<!-- Hero Banner: Editorial Asymmetry -->
+<section class="max-w-7xl mx-auto px-8 mb-24 grid md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-7 z-10">
+<span class="inline-block px-4 py-1 mb-6 bg-secondary-container text-on-secondary-container rounded-sm font-label text-xs uppercase tracking-widest">Seasonal Offerings</span>
+<h1 class="text-6xl md:text-8xl font-headline font-bold text-on-surface leading-[1.1] mb-8 -ml-1">
+                    The Art of <br/><span class="italic font-normal text-primary">Gifting Flourish</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-md leading-relaxed mb-10">
+                    Discover our curated selection of botanical wonders, now presented with gentle considerations for your seasonal sanctuary.
+                </p>
+<div class="flex items-center gap-6">
+</div>
+</div>
+<div class="md:col-span-5 relative">
+<div class="aspect-[4/5] rounded-xl overflow-hidden editorial-shadow transform rotate-2">
+<img class="w-full h-full object-cover" data-alt="Dreamy close-up of soft pink peonies in a ceramic vase on a sun-drenched wooden table with gentle morning shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlpmAyheIchT6UP6vupWHoIXzDP-5Qa-OwmBPs_9gb7kQyaLvFLhEl6GE2o1jYW7H2h5skFQVb9Tafm0phUSVatOGHbXjJxvKvk40FXjN-MMbi38UuZ7hTwscKtgSos1yG6pOuJcuWyKYKhFzrEdU8rsFY3NuIPDDGGONzSPKrLKU0eSspdAOtmdEIZtHowucHDrytLHRqWgiDw8us6fMQWjSE9v6nWrkUHvN2yuaF5PZH3Ya4bYCE_WR_8ERcY4lq3a3hkPDqRfw7"/>
+</div>
+<div class="absolute -bottom-10 -left-10 w-48 h-48 rounded-xl overflow-hidden editorial-shadow border-8 border-surface transform -rotate-3 hidden md:block">
+<img class="w-full h-full object-cover" data-alt="Detailed texture of dried lavender bundles tied with a silk dusty rose ribbon on linen fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqruXgknZE6Gc3-oX6zBiX0mFQMoI8VOEqkrhhNsQF2OGOwnkoWrpDdG4RSWDpV7uFtGtdfUNyZtGIT1_AplTe6ijpCVIKDkyvEYp4u0pkukwwcBcAymqaUkuk6v_P5zVLq7K5podUB1ayNeSfskJF_saGVHrU8xFbUm5698TvX6RN_wShazUk8ry0CHf1akyuSKg_KhUHVB8Y3YtD8a62RlJuzNiByzJ3oemSok3hWzx-O27EivjGnQI1Q_zm9CpyHeaZPYtnXaWS"/>
+</div>
+</div>
+</section>
+<!-- Utility Section: Code & Loyalty -->
+<section class="max-w-7xl mx-auto px-8 mb-24">
+<div class="grid md:grid-cols-2 gap-8">
+<!-- Promo Code Box -->
+<div class="bg-surface-container-low p-10 rounded-xl flex flex-col justify-center">
+<h3 class="font-headline text-2xl mb-2">Have a Secret Key?</h3>
+<p class="text-on-surface-variant mb-8 font-body">Enter your promo code below to unlock artisanal benefits.</p>
+<div class="flex gap-4">
+<input class="flex-1 bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-4 py-3 font-body text-on-surface transition-all" id="discount-promo-input" placeholder="FLORA-SUMMER-24" type="text"/>
+<button class="bg-secondary text-on-secondary px-8 py-3 rounded-full font-label font-medium hover:opacity-90 transition-all" id="discount-promo-apply" type="button">Apply</button>
+</div>
+<p class="text-xs mt-3 text-on-surface-variant hidden" id="discount-promo-feedback"></p>
+</div>
+<!-- Loyalty Points -->
+<div class="bg-tertiary-container/30 p-10 rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label text-sm uppercase tracking-widest text-tertiary font-bold">Cafflora Sanctuary Circle</span>
+</div>
+<h3 class="font-headline text-4xl text-on-tertiary-container mb-4">1,250 <span class="text-lg font-body font-normal italic">Seeds</span></h3>
+<p class="text-on-tertiary-container/80 mb-6 max-w-xs">You're 250 seeds away from a complimentary botanical atelier kit.</p>
+<button class="bg-surface-container-lowest text-tertiary px-6 py-2 rounded-full font-label text-sm font-bold border border-tertiary/10 hover:bg-tertiary hover:text-on-tertiary transition-all">Redeem Rewards</button>
+</div>
+<div class="absolute right-[-20px] top-[-20px] opacity-10">
+<span class="material-symbols-outlined text-[200px]" data-icon="local_florist">local_florist</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Active Deals Grid -->
+<section class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h2 class="font-headline text-4xl mb-2">Curated Reductions</h2>
+<p class="text-on-surface-variant">Time-limited opportunities for your home garden and sanctuary.</p>
+</div>
+<div class="flex gap-2">
+<span class="bg-surface-bright text-secondary px-4 py-1 rounded-sm text-xs font-bold font-label border border-secondary/10">Active Now</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<!-- Card 1 -->
+<div class="group">
+<div class="aspect-square rounded-xl overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Vibrant field of wildflowers in the morning mist, soft focus and ethereal lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYyx-Ydyr2GhTbJRFdw1GWvIKCXp7U2vJhXZji6TnIEaYmy1uETNqW5E0YJ8W3I_zlNA8u6kMo-77o9-vihGPv9l7XN5L4XKGn9rEOOaDsnouAUU33wuDNLizI9_2UsO5h6ABUPIclWSd-7G2AJzgg2Eq6tNNViDD2RVH8BCQviBPcnWQrPYBba4SIvZyTS-Qu5CawR3WaUu-npLyLPny0zYbH7z7eEUrrKuDmtCq7CRChv40yp06_-5iijH9sRrLzzUhuCcmHdNKN"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-bold font-label uppercase">20% Off</div>
+<div class="absolute bottom-4 left-4 right-4 glass-nav bg-white/20 p-3 rounded-lg flex justify-between items-center text-white">
+<span class="text-[10px] font-label uppercase tracking-widest opacity-80">Ends in</span>
+<span class="font-headline text-sm font-bold tracking-widest">04:22:15</span>
+</div>
+</div>
+<h4 class="font-headline text-xl mb-1">Wildflower Bundles</h4>
+<p class="text-on-surface-variant text-sm mb-4">Artisanal hand-picked meadows for your dining table.</p>
+<div class="flex items-center gap-3">
+<span class="text-primary font-bold">$32.00</span>
+<span class="text-on-surface-variant/50 line-through text-sm">$40.00</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group">
+<div class="aspect-square rounded-xl overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Artisanal ceramic pots arranged beautifully in a rustic greenhouse with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCe13sh-BLMo2rA-ZjqftFDAO_AgC4lcJBejrwRkWyka-44oR036XU-sba-rlpeEv51vsYndNM6Q5SnxZk2uqeQ704v9RtVCef8t46B15sVABqjuyFnTTp_FXR-B4NRr6sXvA11OzUZr7fIoCwqU9UAgfUdOsmzU_6HqGZDgWr2CdFhR8027k6hpAAzJLCNC8cKX8ApRRxRK5Sh0H1zcLhxslxMBOb48zGMzCNhNE20DqRVqBok-bpW503HOb4TkgRKkI8BjkHrgnx"/>
+<div class="absolute top-4 left-4 bg-secondary text-on-secondary px-3 py-1 rounded-full text-xs font-bold font-label uppercase">BOGO</div>
+<div class="absolute bottom-4 left-4 right-4 glass-nav bg-white/20 p-3 rounded-lg flex justify-between items-center text-white">
+<span class="text-[10px] font-label uppercase tracking-widest opacity-80">Ends in</span>
+<span class="font-headline text-sm font-bold tracking-widest">12:05:48</span>
+</div>
+</div>
+<h4 class="font-headline text-xl mb-1">Terra Cotta Atelier</h4>
+<p class="text-on-surface-variant text-sm mb-4">Hand-thrown vessels for your botanical companions.</p>
+<div class="flex items-center gap-3">
+<span class="text-primary font-bold">Buy 1 Get 1</span>
+<span class="text-on-surface-variant/50 text-sm italic">Member Exclusive</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group">
+<div class="aspect-square rounded-xl overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern indoor plant arrangement in a minimalist white living room with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNdUjFP48n5XHdPws_CV_RsJC1_cKWOkLtbjMCfyRo2-Jjsss0jG892aKzHFPS5qHhTlfnpQmPvKzIPlfu2-pG77xpqRsb-9Zzy9OPfJICQTrvg4HR58xQF8qRKzfNM1bDW9mC6zVXrz_S8KMW8mA27j8qKbl33_ZSiQaL4J8Y5TmD1cMYa3Kna73Ktrd7DL23NAd-q3wdsPFyFKniHt2JhJwiJoe0yjdgmCRGyXR6TZp0fAHq1R-K5ADOASBeM9YtCVP6nb_f-1Ku"/>
+<div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full text-xs font-bold font-label uppercase">Sale</div>
+<div class="absolute bottom-4 left-4 right-4 glass-nav bg-white/20 p-3 rounded-lg flex justify-between items-center text-white">
+<span class="text-[10px] font-label uppercase tracking-widest opacity-80">Ends in</span>
+<span class="font-headline text-sm font-bold tracking-widest">01:45:10</span>
+</div>
+</div>
+<h4 class="font-headline text-xl mb-1">Indoor Oasis Kit</h4>
+<p class="text-on-surface-variant text-sm mb-4">The complete starter set for the aspiring urban gardener.</p>
+<div class="flex items-center gap-3">
+<span class="text-primary font-bold">$85.00</span>
+<span class="text-on-surface-variant/50 line-through text-sm">$110.00</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Newsletter -->
+<section class="max-w-5xl mx-auto px-8 mt-32">
+<div class="bg-surface-container-highest p-16 rounded-xl text-center editorial-shadow">
+<span class="material-symbols-outlined text-primary text-5xl mb-6" data-icon="mail">mail</span>
+<h2 class="font-headline text-4xl mb-6">Never Miss a Bloom</h2>
+<p class="text-on-surface-variant max-w-lg mx-auto mb-10 leading-relaxed">Join our inner circle for early access to seasonal sales, botanical care guides, and artisanal workshop invites.</p>
+<div class="max-w-md mx-auto flex flex-col md:flex-row gap-4">
+<input class="flex-1 bg-surface-container-lowest border-0 rounded-full px-6 py-4 focus:ring-2 focus:ring-primary/20 transition-all font-body" id="newsletter-email" placeholder="your@email.com" type="email"/>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-label font-bold uppercase text-xs tracking-widest hover:opacity-90 transition-all" id="newsletter-submit" type="button">Subscribe</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-dim dark:bg-stone-900 w-full mt-auto py-12 flex flex-col items-center gap-6 px-8">
+<a class="text-lg font-bold text-on-surface font-headline uppercase tracking-[0.2em] hover:opacity-75 transition-opacity" href="/home">Cafflora</a>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Contact Us</a>
+</div>
+<p class="text-on-surface-variant font-body text-xs uppercase tracking-widest opacity-60">© 2024 Cafflora Botanical Atelier</p>
+</footer>
+<script>
+(function () {
+    var authLinks = document.querySelectorAll('.header-auth-link');
+    var logoutBtn = document.getElementById('header-logout-btn');
+    var token = localStorage.getItem('token');
+    var userRaw = localStorage.getItem('user');
+    function firstNameFromUser(u) {
+        var name = (u && (u.full_name || u.name || '')) || '';
+        var parts = String(name).trim().split(/\s+/);
+        return parts[0] || 'Account';
+    }
+    function setSignedOut() {
+        authLinks.forEach(function (a) {
+            a.href = '/sign-in';
+            if (a.id === 'header-auth-link-drawer') {
+                var label = a.querySelector('.header-auth-label');
+                if (label) label.textContent = 'Sign In';
+            } else {
+                a.textContent = 'Sign In';
+            }
+        });
+        if (logoutBtn) logoutBtn.classList.add('hidden');
+    }
+    if (token && userRaw) {
+        try {
+            var user = JSON.parse(userRaw);
+            var fn = firstNameFromUser(user);
+            authLinks.forEach(function (a) {
+                a.href = '/profile';
+                if (a.id === 'header-auth-link-drawer') {
+                    var label = a.querySelector('.header-auth-label');
+                    if (label) label.textContent = fn;
+                } else {
+                    a.textContent = fn;
+                }
+            });
+            if (logoutBtn) {
+                logoutBtn.classList.remove('hidden');
+                logoutBtn.onclick = function () {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                    window.location.href = '/home';
+                };
+            }
+        } catch (e) {
+            setSignedOut();
+        }
+    } else {
+        setSignedOut();
+    }
+})();
+</script>
+<script>
+(function () {
+    var storageKey = 'cafflora_promo';
+    var promoInput = document.getElementById('discount-promo-input');
+    var promoButton = document.getElementById('discount-promo-apply');
+    var promoFeedback = document.getElementById('discount-promo-feedback');
+    if (!promoInput || !promoButton || !promoFeedback) return;
+
+    function setFeedback(message, isError) {
+        promoFeedback.textContent = message || '';
+        promoFeedback.classList.remove('hidden', 'text-secondary', 'text-red-600');
+        if (!message) {
+            promoFeedback.classList.add('hidden');
+            return;
+        }
+        promoFeedback.classList.add(isError ? 'text-red-600' : 'text-secondary');
+    }
+
+    promoButton.addEventListener('click', async function () {
+        var code = String(promoInput.value || '').trim();
+        if (!code) {
+            setFeedback('Please enter a promo code.', true);
+            return;
+        }
+
+        promoButton.disabled = true;
+        try {
+            var response = await fetch('/api/discounts/validate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ code: code })
+            });
+            var payload = await response.json();
+            if (!response.ok) {
+                throw new Error(payload.error || 'Invalid or inactive promo code');
+            }
+
+            localStorage.setItem(storageKey, JSON.stringify({
+                code: payload.code,
+                discount_percent: Number(payload.discount_percent) || 0
+            }));
+            setFeedback('Promo Code Applied!', false);
+        } catch (error) {
+            setFeedback(error.message || 'Unable to validate promo code.', true);
+        } finally {
+            promoButton.disabled = false;
+        }
+    });
+})();
+</script>
+<script>
+(function () {
+    var emailEl = document.getElementById('newsletter-email');
+    var btn = document.getElementById('newsletter-submit');
+    if (!emailEl || !btn) return;
+
+    function showToast(message, isError) {
+        if (typeof window.showAppToast === 'function') {
+            window.showAppToast(message, isError ? 'error' : 'success');
+            return;
+        }
+        var toast = document.createElement('div');
+        toast.className = 'fixed left-1/2 -translate-x-1/2 bottom-8 z-[120] px-6 py-4 rounded-full shadow-2xl border border-white/40 backdrop-blur-md transition-opacity duration-500 ' +
+            (isError ? 'bg-error-container text-on-error-container' : 'bg-surface-container-lowest/90 text-on-surface');
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        setTimeout(function () { toast.style.opacity = '0'; }, 2600);
+        setTimeout(function () { toast.remove(); }, 3200);
+    }
+
+    btn.addEventListener('click', async function () {
+        var email = String(emailEl.value || '').trim();
+        if (!email) {
+            showToast('Please enter your email address.', true);
+            return;
+        }
+
+        btn.disabled = true;
+        try {
+            var res = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email })
+            });
+            var payload = await res.json();
+            if (!res.ok) throw new Error(payload.error || 'Failed to subscribe');
+
+            showToast('Welcome to the Cafflora Family! You are now subscribed.', false);
+            emailEl.value = '';
+        } catch (err) {
+            console.error(err);
+            showToast(err.message || 'Unable to subscribe right now.', true);
+        } finally {
+            btn.disabled = false;
+        }
+    });
+})();
+</script>
+<div id="legal-modal" class="hidden fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm p-4 md:p-8"><div id="legal-modal-backdrop" class="absolute inset-0" aria-hidden="true"></div><div class="relative mx-auto mt-8 md:mt-16 w-full max-w-3xl rounded-3xl bg-surface shadow-2xl shadow-black/20 overflow-hidden"><button id="legal-modal-close" type="button" class="absolute right-4 top-4 h-10 w-10 rounded-full text-on-surface-variant hover:bg-surface-container transition-colors" aria-label="Close modal"><span class="text-2xl leading-none">&times;</span></button><div class="px-6 md:px-10 pt-8 pb-6 border-b border-outline-variant/20"><h2 id="legal-modal-title" class="text-3xl md:text-4xl text-on-surface pr-12" style="font-family: 'Noto Serif', serif;">Legal Information</h2></div><div id="legal-modal-body" class="px-6 md:px-10 py-6 max-h-[65vh] overflow-y-auto text-on-surface-variant leading-relaxed space-y-4" style="font-family: 'Plus Jakarta Sans', sans-serif;"></div></div></div>
+<script>(function(){var m=document.getElementById('legal-modal'),t=document.getElementById('legal-modal-title'),b=document.getElementById('legal-modal-body'),c=document.getElementById('legal-modal-close');if(!m||!t||!b||!c)return;var r=/(privacy|terms|shipping|sustainability|refund)/i,links=Array.prototype.slice.call(document.querySelectorAll('footer a')).filter(function(l){return r.test((l.textContent||'').trim());});if(!links.length)return;function html(){return['<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere risus vel arcu feugiat, et faucibus lectus tincidunt. Curabitur aliquet, urna in tincidunt viverra, neque erat dictum sapien, vitae vehicula nulla libero et eros.</p>','<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>','<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>'].join('');}function open(title){t.textContent=title;b.innerHTML=html();m.classList.remove('hidden');document.body.classList.add('overflow-hidden');}function close(){m.classList.add('hidden');document.body.classList.remove('overflow-hidden');}links.forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();open((l.textContent||'Legal Information').trim());});});c.addEventListener('click',close);m.addEventListener('click',function(e){if(e.target===m||e.target.id==='legal-modal-backdrop')close();});})();</script>
+</body></html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cafflora | The Boutique</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#ffc3a5",
+                        "secondary-container": "#cdebc4",
+                        "primary-fixed-dim": "#e8bbc5",
+                        "on-secondary-fixed": "#092008",
+                        "on-background": "#1c1c18",
+                        "surface-container-high": "#ebe8e2",
+                        "on-surface": "#1c1c18",
+                        "outline-variant": "#d3c3c5",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dddad4",
+                        "primary": "#78555d",
+                        "tertiary-fixed-dim": "#ffb690",
+                        "primary-fixed": "#ffd9e1",
+                        "on-surface-variant": "#4f4446",
+                        "surface-container-low": "#f7f3ed",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#e8bbc5",
+                        "surface-bright": "#fdf9f3",
+                        "on-secondary-container": "#516b4c",
+                        "on-tertiary-fixed-variant": "#723611",
+                        "surface-container": "#f1ede7",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#2d131b",
+                        "on-tertiary-fixed": "#341100",
+                        "tertiary": "#8f4d27",
+                        "surface-tint": "#78555d",
+                        "on-secondary-fixed-variant": "#344d30",
+                        "surface-container-highest": "#e6e2dc",
+                        "on-primary-container": "#724f58",
+                        "tertiary-fixed": "#ffdbca",
+                        "secondary-fixed-dim": "#b1cfa9",
+                        "primary-container": "#f2c4ce",
+                        "background": "#fdf9f3",
+                        "surface": "#fdf9f3",
+                        "outline": "#817476",
+                        "on-error-container": "#93000a",
+                        "secondary": "#4b6546",
+                        "secondary-fixed": "#cdebc4",
+                        "inverse-surface": "#31302d",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e6e2dc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#884722",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#5e3e46",
+                        "inverse-on-surface": "#f4f0ea",
+                        "brand-espresso": "#3B2314"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 10px 32px -4px rgba(28, 28, 24, 0.06);
+        }
+        .text-ink { color: #1c1c18; }
+        .bg-silk { background: linear-gradient(135deg, #78555d 0%, #e8bbc5 100%); }
+        .tonal-transition { transition: background-color 0.4s ease; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 bg-[#FDF9F3] border-b border-brand-espresso/5">
+<div class="flex items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<!-- Left Zone -->
+<div class="flex-none">
+<a class="text-3xl font-serif italic text-brand-espresso" href="/home">Cafflora</a>
+</div>
+<!-- Center Zone -->
+<div class="flex-1 flex justify-start ml-16">
+<div class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide">
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/home">Home</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/menu">Menu</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/shop">Shop</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/discounts">Discounts</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/about">About</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/contact">Contact</a>
+</div>
+</div>
+<!-- Right Zone -->
+<div class="flex items-center space-x-10 flex-none">
+<!-- Sub-group A -->
+<div class="hidden lg:flex items-center space-x-6">
+<a class="text-brand-espresso/60 hover:text-brand-espresso transition-colors duration-200" href="/coffee">
+<span class="material-symbols-outlined text-2xl">coffee</span>
+</a>
+<a class="text-brand-espresso/60 hover:text-brand-espresso transition-colors duration-200" href="/books">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+</a>
+<a class="text-brand-espresso/60 hover:text-brand-espresso transition-colors duration-200" href="/flowers">
+<span class="material-symbols-outlined text-2xl">local_florist</span>
+</a>
+</div>
+<!-- Sub-group B -->
+<div class="flex items-center space-x-6">
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200 flex items-center" href="/cart">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+</a>
+<a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-brand-espresso hover:opacity-70 transition-opacity header-auth-link" id="header-auth-link" href="/sign-in">Sign In</a>
+<button type="button" id="header-logout-btn" class="hidden text-xs font-semibold text-brand-espresso/80 hover:opacity-70 underline underline-offset-2">Logout</button>
+</div>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-brand-espresso" onclick="document.getElementById('side-nav').classList.remove('translate-x-full')">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Mobile/Drawer) -->
+<div class="fixed inset-y-0 right-0 w-[88vw] max-w-96 z-[60] bg-[#FDF9F3] shadow-2xl translate-x-full transition-transform duration-500 ease-in-out" id="side-nav">
+<div class="flex flex-col h-full p-6">
+<div class="flex justify-between items-center mb-12">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">local_florist</span>
+</div>
+<div>
+<h2 class="text-2xl font-serif text-[#78555D]">The Botanical Atelier</h2>
+<p class="text-sm opacity-70">Curated Sanctuary</p>
+</div>
+</div>
+<button onclick="document.getElementById('side-nav').classList.add('translate-x-full')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-4 font-['Plus_Jakarta_Sans'] font-medium">
+<a class="bg-[#F2C4CE] text-[#78555D] rounded-full px-4 py-2 flex items-center gap-3" href="/home">
+<span class="material-symbols-outlined">home</span> Home
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/menu">
+<span class="material-symbols-outlined">restaurant_menu</span> Menu
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/shop">
+<span class="material-symbols-outlined">local_florist</span> Shop
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/discounts">
+<span class="material-symbols-outlined">local_offer</span> Discounts
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/about">
+<span class="material-symbols-outlined">info</span> About
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/contact">
+<span class="material-symbols-outlined">mail</span> Contact
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3 header-auth-link" id="header-auth-link-drawer" href="/sign-in">
+<span class="material-symbols-outlined">login</span><span class="header-auth-label">Sign In</span>
+                </a>
+</div>
+</div>
+</div>
+<main class="pt-24 pb-20">
+<!-- Editorial Header -->
+<header class="px-8 max-w-7xl mx-auto mb-16">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div class="max-w-2xl">
+<h1 class="text-6xl md:text-8xl font-headline italic tracking-tighter text-on-surface mb-6">The Boutique</h1>
+<p class="text-lg text-on-surface-variant leading-relaxed max-w-lg">
+                        Step into a curated collection where the fragrance of rare blooms meets the crisp scent of linen-bound paper. Every item is hand-selected for its soul.
+                    </p>
+</div>
+<!-- Sub-Tabs -->
+<div class="flex bg-surface-container-low p-1.5 rounded-full">
+<button class="px-8 py-3 rounded-full text-on-surface-variant hover:text-on-surface font-medium text-sm transition-all" id="shop-toggle-flowers" type="button">Flowers</button>
+<button class="px-8 py-3 rounded-full text-on-surface-variant hover:text-on-surface font-medium text-sm transition-all" id="shop-toggle-books" type="button">Books</button>
+</div>
+</div>
+</header>
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Sidebar Filters -->
+<aside class="lg:col-span-3 space-y-12">
+<section>
+<h3 class="font-headline text-xl mb-6">Collections</h3>
+<ul class="space-y-4">
+<li>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded-md border-outline-variant text-primary focus:ring-primary-container bg-transparent" type="checkbox"/>
+<span class="ml-3 text-on-surface-variant group-hover:text-on-surface transition-colors">Heirloom Roses</span>
+</label>
+</li>
+<li>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded-md border-outline-variant text-primary focus:ring-primary-container bg-transparent" type="checkbox"/>
+<span class="ml-3 text-on-surface-variant group-hover:text-on-surface transition-colors">Wildflower Meadows</span>
+</label>
+</li>
+<li>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded-md border-outline-variant text-primary focus:ring-primary-container bg-transparent" type="checkbox"/>
+<span class="ml-3 text-on-surface-variant group-hover:text-on-surface transition-colors">Botanical Poetry</span>
+</label>
+</li>
+</ul>
+</section>
+<section>
+<h3 class="font-headline text-xl mb-6">Price Range</h3>
+<input class="w-full h-1 bg-surface-container-highest rounded-full appearance-none accent-primary cursor-pointer" id="shop-price-range" max="250" min="0" type="range" value="250"/>
+<div class="flex justify-between mt-4 text-sm text-on-surface-variant font-label">
+<span>$20</span>
+<span><span id="shop-price-range-value">$250</span>+</span>
+</div>
+</section>
+<div class="pt-8 border-t border-outline-variant/15">
+<img class="w-full h-64 object-cover rounded-2xl mb-4" data-alt="close-up of a delicate botanical watercolor painting of a peony with soft pink and cream tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA50iwZTQEJnAs7HMVBxh8kHiakJxpTk8swz1KLwka7EiGHzTqFPwEIbrUG3RNbrwUEWkXWrArimR7Rh-aHdIBEq3Vp4CcZ-dB0lj3SP9rE72HIOQ-QFN1xgmQaF8jYNynKQJoYKcMHohVfYrd7Sqz_BIONn4uWq0OFKFpARxee8RIsKNsN9ghnDajlz4TJ-Vnop1WMYJ_I35EwautC4s1PMHRNKBom3RmXcejfyvD9oZ-njNJbYa6PjJ2XrwUi9CfwrPjK51Pp_D9P"/>
+<p class="text-sm italic text-on-surface-variant">"In every walk with nature, one receives far more than he seeks."</p>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="lg:col-span-9">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-16 gap-x-8" id="products-grid">
+<p class="text-on-surface-variant" id="products-loading">Loading products...</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-dim dark:bg-stone-900 w-full mt-auto py-12 flex flex-col items-center gap-6 px-8">
+<a class="text-lg font-bold text-on-surface font-headline uppercase tracking-[0.2em] hover:opacity-75 transition-opacity" href="/home">Cafflora</a>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Contact Us</a>
+</div>
+<p class="text-on-surface-variant font-body text-xs uppercase tracking-widest opacity-60">© 2024 Cafflora Botanical Atelier</p>
+</footer>
+<script>
+    const cartCountEl = document.getElementById('cart-count');
+    const productsGrid = document.getElementById('products-grid');
+    const productsLoading = document.getElementById('products-loading');
+    const FALLBACK_IMAGE = 'https://placehold.co/600x800/F7F3ED/78555D?text=Cafflora';
+    let allShopProducts = [];
+    let activeCategoryId = null; // 3 flowers, 4 books
+    let maxPrice = 250;
+
+    function setCartCount(count) {
+        if (!cartCountEl) return;
+        const safeCount = Number(count) || 0;
+        cartCountEl.textContent = safeCount;
+        cartCountEl.classList.toggle('hidden', safeCount <= 0);
+    }
+
+    async function hydrateCartCount() {
+        const token = localStorage.getItem('token');
+        if (!token) return;
+
+        try {
+            const response = await fetch('/api/cart', {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            if (!response.ok) return;
+            const data = await response.json();
+            setCartCount(data.summary?.total_items || 0);
+        } catch (error) {
+            console.error('Failed to load cart count:', error);
+        }
+    }
+
+    function renderProducts(products) {
+        productsGrid.innerHTML = '';
+
+        if (!products.length) {
+            productsGrid.innerHTML = '<p class="text-on-surface-variant">No products available right now.</p>';
+            return;
+        }
+
+        products.forEach((product) => {
+            const card = document.createElement('div');
+            card.className = 'group';
+            card.innerHTML = `
+                <div class="relative overflow-hidden rounded-2xl mb-6 bg-surface-container-low h-80">
+                    <img
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        src="${product.image_url || FALLBACK_IMAGE}"
+                        alt="${product.name}"
+                    />
+                    <button
+                        type="button"
+                        class="add-to-cart-btn absolute bottom-4 right-4 h-12 w-12 rounded-full bg-surface/80 backdrop-blur-md border border-outline-variant/20 text-primary shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center"
+                        data-id="${product.product_id}"
+                        aria-label="Add to cart"
+                    >
+                        <span class="material-symbols-outlined text-2xl">shopping_cart</span>
+                    </button>
+                </div>
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h4 class="font-headline text-2xl text-on-surface mb-1">${product.name}</h4>
+                        <p class="text-sm text-on-surface-variant font-medium">${product.category_name || 'Cafflora Collection'}</p>
+                    </div>
+                    <span class="text-xl font-headline text-primary">$${Number(product.price).toFixed(2)}</span>
+                </div>
+            `;
+            productsGrid.appendChild(card);
+        });
+    }
+
+    async function loadProducts() {
+        try {
+            const response = await fetch('/api/products?filter=shop');
+            if (!response.ok) throw new Error('Failed to fetch products');
+            const products = await response.json();
+            allShopProducts = Array.isArray(products) ? products : [];
+            syncPriceSliderFromData(allShopProducts);
+            applyFiltersAndRender();
+        } catch (error) {
+            console.error(error);
+            productsGrid.innerHTML = '<p class="text-red-600">Unable to load products right now.</p>';
+        } finally {
+            if (productsLoading) {
+                productsLoading.remove();
+            }
+        }
+    }
+
+    loadProducts();
+    hydrateCartCount();
+</script>
+<script>
+(function () {
+    const flowersBtn = document.getElementById('shop-toggle-flowers');
+    const booksBtn = document.getElementById('shop-toggle-books');
+    const priceRange = document.getElementById('shop-price-range');
+    const priceValue = document.getElementById('shop-price-range-value');
+    const collectionInputs = Array.prototype.slice.call(document.querySelectorAll('aside input[type="checkbox"]'));
+
+    function setToggleActive(btn, isActive) {
+        if (!btn) return;
+        btn.classList.toggle('bg-primary', isActive);
+        btn.classList.toggle('text-on-primary', isActive);
+        btn.classList.toggle('font-medium', true);
+        if (!isActive) {
+            btn.classList.remove('bg-primary', 'text-on-primary');
+        }
+    }
+
+    function syncToggleUi() {
+        setToggleActive(flowersBtn, activeCategoryId === 3);
+        setToggleActive(booksBtn, activeCategoryId === 4);
+    }
+
+    function getSelectedCollections() {
+        return collectionInputs
+            .filter((i) => i && i.checked)
+            .map((i) => {
+                const label = i.closest('label');
+                return (label && label.textContent ? label.textContent : '').trim();
+            })
+            .filter(Boolean);
+    }
+
+    function collectionKeywords(label) {
+        const l = String(label || '').toLowerCase();
+        if (l.includes('heirloom') || l.includes('rose')) return ['rose', 'roses'];
+        if (l.includes('wildflower')) return ['wildflower', 'meadow', 'meadows'];
+        if (l.includes('botanical')) return ['botanical', 'poetry', 'book', 'books'];
+        return [l];
+    }
+
+    function matchesCollections(product, selectedLabels) {
+        if (!selectedLabels.length) return true;
+        const haystack = `${product.name || ''} ${product.description || ''}`.toLowerCase();
+        return selectedLabels.some((label) => {
+            const keys = collectionKeywords(label);
+            return keys.some((k) => k && haystack.includes(k));
+        });
+    }
+
+    window.syncPriceSliderFromData = function (products) {
+        if (!priceRange || !priceValue) return;
+        const prices = (products || []).map((p) => Number(p.price) || 0);
+        const max = Math.max(0, ...prices, 250);
+        maxPrice = max;
+        priceRange.max = String(Math.ceil(max));
+        if (!priceRange.value) priceRange.value = priceRange.max;
+        priceValue.textContent = String(priceRange.value);
+    };
+
+    window.applyFiltersAndRender = function () {
+        if (!Array.isArray(allShopProducts)) return;
+        const selectedLabels = getSelectedCollections();
+        const limit = Number(maxPrice) || 250;
+
+        const filtered = allShopProducts.filter((p) => {
+            const priceOk = (Number(p.price) || 0) <= limit;
+            const categoryOk = activeCategoryId ? Number(p.category_id) === activeCategoryId : true;
+            const collectionsOk = matchesCollections(p, selectedLabels);
+            return priceOk && categoryOk && collectionsOk;
+        });
+
+        renderProducts(filtered);
+    };
+
+    if (flowersBtn) {
+        flowersBtn.addEventListener('click', function () {
+            activeCategoryId = activeCategoryId === 3 ? null : 3;
+            syncToggleUi();
+            applyFiltersAndRender();
+        });
+    }
+    if (booksBtn) {
+        booksBtn.addEventListener('click', function () {
+            activeCategoryId = activeCategoryId === 4 ? null : 4;
+            syncToggleUi();
+            applyFiltersAndRender();
+        });
+    }
+
+    if (priceRange && priceValue) {
+        priceRange.addEventListener('input', function () {
+            priceValue.textContent = String(priceRange.value);
+            maxPrice = Number(priceRange.value) || maxPrice;
+            applyFiltersAndRender();
+        });
+    }
+
+    collectionInputs.forEach((input) => {
+        input.addEventListener('change', function () {
+            applyFiltersAndRender();
+        });
+    });
+
+    syncToggleUi();
+})();
+</script>
+<script>
+(function () {
+    var authLinks = document.querySelectorAll('.header-auth-link');
+    var logoutBtn = document.getElementById('header-logout-btn');
+    var token = localStorage.getItem('token');
+    var userRaw = localStorage.getItem('user');
+    function firstNameFromUser(u) {
+        var name = (u && (u.full_name || u.name || '')) || '';
+        var parts = String(name).trim().split(/\s+/);
+        return parts[0] || 'Account';
+    }
+    function setSignedOut() {
+        authLinks.forEach(function (a) {
+            a.href = '/sign-in';
+            if (a.id === 'header-auth-link-drawer') {
+                var label = a.querySelector('.header-auth-label');
+                if (label) label.textContent = 'Sign In';
+            } else {
+                a.textContent = 'Sign In';
+            }
+        });
+        if (logoutBtn) logoutBtn.classList.add('hidden');
+    }
+    if (token && userRaw) {
+        try {
+            var user = JSON.parse(userRaw);
+            var fn = firstNameFromUser(user);
+            authLinks.forEach(function (a) {
+                a.href = '/profile';
+                if (a.id === 'header-auth-link-drawer') {
+                    var label = a.querySelector('.header-auth-label');
+                    if (label) label.textContent = fn;
+                } else {
+                    a.textContent = fn;
+                }
+            });
+            if (logoutBtn) {
+                logoutBtn.classList.remove('hidden');
+                logoutBtn.onclick = function () {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                    window.location.href = '/home';
+                };
+            }
+        } catch (e) {
+            setSignedOut();
+        }
+    } else {
+        setSignedOut();
+    }
+})();
+</script>
+<div id="cart-toast" class="fixed bottom-5 right-5 bg-brand-espresso text-brand-cream px-6 py-3 rounded-full shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-[100] flex items-center gap-2 pointer-events-none font-sans text-sm"><span class="material-symbols-outlined text-brand-sage">check_circle</span>Item gracefully added to your cart</div>
+<script src="/js/cart-global.js"></script>
+<div id="legal-modal" class="hidden fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm p-4 md:p-8">
+  <div id="legal-modal-backdrop" class="absolute inset-0" aria-hidden="true"></div>
+  <div class="relative mx-auto mt-8 md:mt-16 w-full max-w-3xl rounded-3xl bg-surface shadow-2xl shadow-black/20 overflow-hidden">
+    <button id="legal-modal-close" type="button" class="absolute right-4 top-4 h-10 w-10 rounded-full text-on-surface-variant hover:bg-surface-container transition-colors" aria-label="Close modal">
+      <span class="text-2xl leading-none">&times;</span>
+    </button>
+    <div class="px-6 md:px-10 pt-8 pb-6 border-b border-outline-variant/20">
+      <h2 id="legal-modal-title" class="text-3xl md:text-4xl text-on-surface pr-12" style="font-family: 'Noto Serif', serif;">Legal Information</h2>
+    </div>
+    <div id="legal-modal-body" class="px-6 md:px-10 py-6 max-h-[65vh] overflow-y-auto text-on-surface-variant leading-relaxed space-y-4" style="font-family: 'Plus Jakarta Sans', sans-serif;"></div>
+  </div>
+</div>
+<script>
+(function () {
+  var modal = document.getElementById('legal-modal');
+  var modalTitle = document.getElementById('legal-modal-title');
+  var modalBody = document.getElementById('legal-modal-body');
+  var closeBtn = document.getElementById('legal-modal-close');
+  if (!modal || !modalTitle || !modalBody || !closeBtn) return;
+  var keywordRegex = /(privacy|terms|shipping|sustainability|refund)/i;
+  var footerLinks = Array.prototype.slice.call(document.querySelectorAll('footer a')).filter(function (link) {
+    return keywordRegex.test((link.textContent || '').trim());
+  });
+  if (!footerLinks.length) return;
+  function buildBodyHtml() {
+    return [
+      '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere risus vel arcu feugiat, et faucibus lectus tincidunt. Curabitur aliquet, urna in tincidunt viverra, neque erat dictum sapien, vitae vehicula nulla libero et eros.</p>',
+      '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>',
+      '<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>'
+    ].join('');
+  }
+  function openModal(title) {
+    modalTitle.textContent = title;
+    modalBody.innerHTML = buildBodyHtml();
+    modal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+  }
+  function closeModal() {
+    modal.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  }
+  footerLinks.forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      openModal((link.textContent || 'Legal Information').trim());
+    });
+  });
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal || e.target.id === 'legal-modal-backdrop') closeModal();
+  });
+})();
+</script>
+</body></html>

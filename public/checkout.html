@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="/js/ui-toast.js"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#1c1c18",
+                        "background": "#fdf9f3",
+                        "secondary-container": "#cdebc4",
+                        "on-primary-fixed": "#2d131b",
+                        "on-primary-container": "#724f58",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f4f0ea",
+                        "on-secondary-container": "#516b4c",
+                        "on-tertiary-container": "#884722",
+                        "surface-container-highest": "#e6e2dc",
+                        "on-secondary-fixed": "#092008",
+                        "surface-variant": "#e6e2dc",
+                        "surface-dim": "#dddad4",
+                        "secondary-fixed-dim": "#b1cfa9",
+                        "on-secondary-fixed-variant": "#344d30",
+                        "primary": "#78555d",
+                        "tertiary-fixed-dim": "#ffb690",
+                        "surface-container-high": "#ebe8e2",
+                        "on-tertiary-fixed": "#341100",
+                        "inverse-primary": "#e8bbc5",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#cdebc4",
+                        "surface": "#fdf9f3",
+                        "surface-tint": "#78555d",
+                        "outline-variant": "#d3c3c5",
+                        "on-background": "#1c1c18",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#f1ede7",
+                        "secondary": "#4b6546",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fdf9f3",
+                        "inverse-surface": "#31302d",
+                        "tertiary-fixed": "#ffdbca",
+                        "primary-fixed-dim": "#e8bbc5",
+                        "on-primary-fixed-variant": "#5e3e46",
+                        "primary-fixed": "#ffd9e1",
+                        "on-tertiary-fixed-variant": "#723611",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#4f4446",
+                        "tertiary": "#8f4d27",
+                        "surface-container-low": "#f7f3ed",
+                        "tertiary-container": "#ffc3a5",
+                        "primary-container": "#f2c4ce",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "outline": "#817476"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .botanical-input {
+            border: none;
+            border-bottom: 2px solid #d3c3c5;
+            background: transparent;
+            border-radius: 0;
+            padding-left: 0;
+            padding-right: 0;
+            transition: border-color 0.3s ease;
+        }
+        .botanical-input:focus {
+            box-shadow: none;
+            border-color: #78555d;
+            outline: none;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @keyframes check-pop {
+            0% { transform: scale(0.55); opacity: 0; }
+            60% { transform: scale(1.12); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .success-checkmark {
+            transform: scale(0.55);
+            opacity: 0;
+        }
+        .success-modal.show .success-checkmark {
+            animation: check-pop 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen">
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#FDF9F3]/90 backdrop-blur-sm border-b border-brand-espresso/5">
+<div class="max-w-7xl mx-auto px-6 sm:px-8 py-6">
+<a class="text-3xl font-serif italic text-brand-espresso hover:opacity-90 transition-opacity inline-block" href="/home">Cafflora</a>
+</div>
+</header>
+<main class="pt-32 pb-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
+<div class="flex flex-col lg:grid lg:grid-cols-12 gap-16">
+<!-- Left Column: Information Flow -->
+<div class="lg:col-span-7 space-y-20">
+<!-- Contact Details -->
+<section>
+<h2 class="font-headline text-3xl text-on-surface mb-8">Contact Details</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col space-y-2">
+<label class="text-xs uppercase tracking-widest font-bold text-on-surface-variant">Full Name</label>
+<input class="botanical-input py-3" placeholder="Elara Vance" type="text"/>
+</div>
+<div class="flex flex-col space-y-2">
+<label class="text-xs uppercase tracking-widest font-bold text-on-surface-variant">Email Address</label>
+<input class="botanical-input py-3" placeholder="elara@atelier.com" type="email"/>
+</div>
+</div>
+</section>
+<!-- Shipping Address -->
+<section class="p-8 bg-surface-container-low rounded-xl">
+<h2 class="font-headline text-3xl text-on-surface mb-8">Shipping Address</h2>
+<div class="grid grid-cols-1 gap-8">
+<div class="flex flex-col space-y-2">
+<label class="text-xs uppercase tracking-widest font-bold text-on-surface-variant">Street Address</label>
+<input class="botanical-input py-3" placeholder="72 Rue de Rivoli" type="text"/>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+<div class="flex flex-col space-y-2">
+<label class="text-xs uppercase tracking-widest font-bold text-on-surface-variant">City</label>
+<input class="botanical-input py-3" placeholder="Paris" type="text"/>
+</div>
+<div class="flex flex-col space-y-2">
+<label class="text-xs uppercase tracking-widest font-bold text-on-surface-variant">Postal Code</label>
+<input class="botanical-input py-3" placeholder="75004" type="text"/>
+</div>
+<div class="flex flex-col space-y-2 col-span-2 md:col-span-1">
+<label class="text-xs uppercase tracking-widest font-bold text-on-surface-variant">Country</label>
+<input class="botanical-input py-3" placeholder="France" type="text"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Delivery Method -->
+<!-- Payment Method Concept -->
+<section class="bg-surface-container rounded-xl p-8">
+<h2 class="font-headline text-3xl text-on-surface mb-8">Payment Ritual</h2>
+<div class="space-y-6">
+<button class="w-full flex items-center space-x-4 p-4 bg-surface-container-lowest border border-primary rounded-lg transition-all" data-payment-option="card" type="button">
+<span class="material-symbols-outlined text-primary" data-icon="credit_card">credit_card</span>
+<div class="flex-grow">
+<p class="text-sm font-bold text-on-surface">Credit or Debit Card</p>
+<p class="text-xs text-on-surface-variant">Securely processed via botanical encryption</p>
+</div>
+<div class="w-4 h-4 rounded-full border-4 border-primary" data-payment-radio></div>
+</button>
+<div id="card-details-form" class="hidden mt-4 space-y-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">lock</span>
+<input id="card-number" class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg pl-10 pr-4 py-3 text-sm focus:ring-0 focus:border-primary transition-colors" placeholder="Card number" inputmode="numeric" autocomplete="cc-number" />
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<input id="card-expiry" class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg px-4 py-3 text-sm focus:ring-0 focus:border-primary transition-colors" placeholder="Expiration date (MM/YY)" inputmode="numeric" autocomplete="cc-exp" />
+<input id="card-cvv" class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg px-4 py-3 text-sm focus:ring-0 focus:border-primary transition-colors" placeholder="Security code" inputmode="numeric" autocomplete="cc-csc" />
+</div>
+<input id="card-name" class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg px-4 py-3 text-sm focus:ring-0 focus:border-primary transition-colors" placeholder="Name on card" autocomplete="cc-name" />
+</div>
+<button class="w-full flex items-center space-x-4 p-4 border border-outline-variant/30 rounded-lg transition-all" data-payment-option="wallet" type="button">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_balance_wallet">account_balance_wallet</span>
+<div class="flex-grow">
+<p class="text-sm font-bold text-on-surface">Digital Wallet</p>
+<p class="text-xs text-on-surface-variant">Pay with your preferred secure wallet app.</p>
+</div>
+<div class="w-4 h-4 rounded-full border border-outline-variant" data-payment-radio></div>
+</button>
+<div id="wallet-details-form" class="hidden mt-4 space-y-4">
+<select id="wallet-provider" class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg px-4 py-3 text-sm focus:ring-0 focus:border-primary transition-colors">
+<option value="">Select wallet</option>
+<option value="Jazz Cash">Jazz Cash</option>
+<option value="Easy Paisa">Easy Paisa</option>
+<option value="Sada Pay">Sada Pay</option>
+<option value="Naya Pay">Naya Pay</option>
+</select>
+<input id="wallet-account" class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg px-4 py-3 text-sm focus:ring-0 focus:border-primary transition-colors" placeholder="Account / Phone Number" inputmode="tel" autocomplete="tel" />
+</div>
+<button class="w-full flex items-center space-x-4 p-4 border border-outline-variant/30 rounded-lg transition-all" data-payment-option="cod" type="button">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="local_shipping">local_shipping</span>
+<div class="flex-grow">
+<p class="text-sm font-bold text-on-surface">Cash on Delivery</p>
+<p class="text-xs text-on-surface-variant">Pay when your curated parcel arrives at your doorstep.</p>
+</div>
+<div class="w-4 h-4 rounded-full border border-outline-variant" data-payment-radio></div>
+</button>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary (Sticky) -->
+<div class="lg:col-span-5">
+<div class="sticky top-32 bg-surface-container-high rounded-xl p-8 lg:p-10">
+<h3 class="font-headline text-2xl text-on-surface mb-10">Your Selection</h3>
+<div class="space-y-8 mb-10" id="checkout-items-container">
+<p class="text-sm text-on-surface-variant" id="checkout-items-loading">Preparing your curated selection...</p>
+</div>
+<!-- Promo Code -->
+<div class="flex items-center space-x-4 mb-10">
+<input class="botanical-input flex-grow py-2 text-sm" id="checkout-promo-input" placeholder="Invitation or Promo Code" type="text"/>
+<button class="text-xs uppercase tracking-widest font-bold text-tertiary hover:opacity-70 transition-opacity" id="checkout-promo-action" type="button">Apply</button>
+</div>
+<p class="text-xs text-on-surface-variant -mt-6 mb-8 hidden" id="checkout-promo-feedback"></p>
+<!-- Breakdown -->
+<div class="space-y-4 pt-8 border-t border-outline-variant/20">
+<div class="flex justify-between text-sm text-on-surface-variant">
+<span>Subtotal</span>
+<span id="summary-subtotal">$0.00</span>
+</div>
+<div class="flex justify-between text-sm text-on-surface-variant hidden" id="summary-discount-row">
+<span>Discount</span>
+<span class="text-secondary" id="summary-discount">-$0.00</span>
+</div>
+<div class="flex justify-between text-sm text-on-surface-variant">
+<span>Bespoke Delivery</span>
+<span id="summary-shipping">$0.00</span>
+</div>
+<div class="flex justify-between text-sm text-on-surface-variant">
+<span>Taxes</span>
+<span id="summary-taxes">$0.00</span>
+</div>
+<div class="flex justify-between text-xl font-headline text-on-surface pt-4">
+<span>Total</span>
+<span id="summary-total">$0.00</span>
+</div>
+</div>
+<!-- CTA -->
+<div class="mt-12">
+<button class="w-full bg-primary text-on-primary py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-primary/90 transition-all shadow-xl shadow-primary/10 flex items-center justify-center space-x-3 group" id="complete-ritual-btn" type="button">
+<span>Complete Your Ritual</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<p class="text-[10px] text-center text-on-surface-variant mt-6 uppercase tracking-widest">Secure botanical checkout • Carbon neutral delivery</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-dim dark:bg-stone-900 w-full mt-auto py-12 flex flex-col items-center gap-6 px-8">
+<a class="text-lg font-bold text-on-surface font-headline uppercase tracking-[0.2em] hover:opacity-75 transition-opacity" href="/home">Cafflora</a>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Contact Us</a>
+</div>
+<p class="text-on-surface-variant font-body text-xs uppercase tracking-widest opacity-60">© 2024 Cafflora Botanical Atelier</p>
+</footer>
+<script>
+(function () {
+    var storageKey = 'cafflora_promo';
+    var checkoutItemsStorageKey = 'checkout_items_snapshot';
+    var checkoutTotalsStorageKey = 'checkout_totals_snapshot';
+    var promoInput = document.getElementById('checkout-promo-input');
+    var promoAction = document.getElementById('checkout-promo-action');
+    var promoFeedback = document.getElementById('checkout-promo-feedback');
+    var checkoutItemsContainer = document.getElementById('checkout-items-container');
+    var checkoutItemsLoading = document.getElementById('checkout-items-loading');
+    var subtotalEl = document.getElementById('summary-subtotal');
+    var discountRow = document.getElementById('summary-discount-row');
+    var discountEl = document.getElementById('summary-discount');
+    var shippingEl = document.getElementById('summary-shipping');
+    var taxesEl = document.getElementById('summary-taxes');
+    var totalEl = document.getElementById('summary-total');
+
+    if (!promoInput || !promoAction || !subtotalEl || !shippingEl || !taxesEl || !totalEl || !discountRow || !discountEl) return;
+
+    var FALLBACK_IMAGE = 'https://placehold.co/200x240/F1EDE7/78555D?text=Cafflora';
+    var SHIPPING_FEE = 12;
+    var TAX_RATE = 0.05;
+
+    function escapeHtml(value) {
+        return String(value == null ? '' : value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function parseMoney(text) {
+        var numeric = String(text || '0').replace(/[^0-9.-]/g, '');
+        var value = parseFloat(numeric);
+        return Number.isFinite(value) ? value : 0;
+    }
+
+    function formatUsd(value) {
+        return '$' + Number(value || 0).toFixed(2);
+    }
+
+    function saveCheckoutSnapshot(items, totals) {
+        try {
+            localStorage.setItem(checkoutItemsStorageKey, JSON.stringify(items || []));
+            localStorage.setItem(checkoutTotalsStorageKey, JSON.stringify(totals || {}));
+        } catch (e) {
+            /* ignore localStorage quota errors */
+        }
+    }
+
+    function saveCheckoutTotals(totals) {
+        try {
+            localStorage.setItem(checkoutTotalsStorageKey, JSON.stringify(totals || {}));
+        } catch (e) {
+            /* ignore localStorage quota errors */
+        }
+    }
+
+    function getCheckoutTotals() {
+        try {
+            var parsed = JSON.parse(localStorage.getItem(checkoutTotalsStorageKey) || 'null');
+            if (!parsed) return null;
+            return parsed;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function getLocalCartItems() {
+        try {
+            var parsed = JSON.parse(localStorage.getItem('cart') || 'null');
+            if (Array.isArray(parsed)) return parsed;
+            if (parsed && Array.isArray(parsed.items)) return parsed.items;
+        } catch (e) {
+            return [];
+        }
+        return [];
+    }
+
+    async function loadCheckoutCartItems() {
+        var token = localStorage.getItem('token');
+        if (token) {
+            try {
+                var response = await fetch('/api/cart', {
+                    headers: { Authorization: 'Bearer ' + token }
+                });
+                if (response.ok) {
+                    var payload = await response.json();
+                    if (payload && Array.isArray(payload.items)) return payload.items;
+                }
+            } catch (e) {
+                /* fallback to local */
+            }
+        }
+        return getLocalCartItems();
+    }
+
+    function normalizeCheckoutItem(item) {
+        var quantity = Number(item.quantity) || 1;
+        var unitPrice = Number(item.price ?? item.unit_price) || 0;
+        var lineTotal = Number(item.line_total);
+        if (!Number.isFinite(lineTotal)) lineTotal = unitPrice * quantity;
+        return {
+            name: String(item.name || item.product_name || 'Curated Item'),
+            quantity: quantity,
+            tag: String(item.tag || item.category_name || 'Curated Selection'),
+            image_url: item.image_url || FALLBACK_IMAGE,
+            line_total: lineTotal
+        };
+    }
+
+    function renderCheckoutItems(items) {
+        if (!checkoutItemsContainer) return;
+        checkoutItemsContainer.innerHTML = '';
+        if (!items.length) {
+            checkoutItemsContainer.innerHTML = '<p class="text-sm text-on-surface-variant">Your cart is empty. Add an atelier favorite to continue.</p>';
+            return;
+        }
+
+        items.forEach(function (item) {
+            var safeName = escapeHtml(item.name);
+            var safeTag = escapeHtml(item.tag || 'Curated Selection');
+            var card = document.createElement('div');
+            card.className = 'flex items-center space-x-6';
+            card.innerHTML =
+                '<div class="relative flex-shrink-0">' +
+                '<img alt="' + safeName + '" class="w-20 h-24 object-cover rounded-md" src="' + escapeHtml(item.image_url) + '"/>' +
+                '<span class="absolute -top-2 -right-2 bg-on-surface text-surface text-[10px] w-5 h-5 flex items-center justify-center rounded-full">' + item.quantity + '</span>' +
+                '</div>' +
+                '<div class="flex-grow">' +
+                '<p class="font-headline text-lg text-on-surface leading-tight">' + safeName + '</p>' +
+                '<p class="text-xs uppercase tracking-widest text-on-surface-variant mt-1">Qty ' + item.quantity + ' • ' + safeTag + '</p>' +
+                '</div>' +
+                '<p class="font-body font-bold text-on-surface">' + formatUsd(item.line_total) + '</p>';
+            checkoutItemsContainer.appendChild(card);
+        });
+    }
+
+    function writeSummary(subtotal, shipping, taxes, discountAmount) {
+        subtotalEl.textContent = formatUsd(subtotal);
+        shippingEl.textContent = formatUsd(shipping);
+        taxesEl.textContent = formatUsd(taxes);
+        var safeDiscount = Number(discountAmount) || 0;
+        if (safeDiscount > 0) {
+            discountRow.classList.remove('hidden');
+            discountEl.textContent = '-' + formatUsd(safeDiscount);
+        } else {
+            discountRow.classList.add('hidden');
+            discountEl.textContent = '-' + formatUsd(0);
+        }
+        totalEl.textContent = formatUsd(Math.max(0, subtotal + shipping + taxes - safeDiscount));
+        saveCheckoutTotals({ subtotal: subtotal, shipping: shipping, taxes: taxes, discount: safeDiscount });
+    }
+
+    async function hydrateCheckoutSelection() {
+        var rawItems = await loadCheckoutCartItems();
+        var items = rawItems.map(normalizeCheckoutItem).filter(function (item) {
+            return item.quantity > 0;
+        });
+
+        renderCheckoutItems(items);
+        if (checkoutItemsLoading) checkoutItemsLoading.remove();
+
+        var subtotal = items.reduce(function (sum, item) { return sum + item.line_total; }, 0);
+        var shipping = items.length ? SHIPPING_FEE : 0;
+        var taxes = subtotal * TAX_RATE;
+        saveCheckoutSnapshot(items, { subtotal: subtotal, shipping: shipping, taxes: taxes });
+        updateSummary();
+    }
+
+    function getStoredPromo() {
+        try {
+            var parsed = JSON.parse(localStorage.getItem(storageKey) || 'null');
+            if (!parsed || !parsed.code || !parsed.discount_percent) return null;
+            return parsed;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function setPromoFeedback(message, isError) {
+        if (!promoFeedback) return;
+        promoFeedback.textContent = message || '';
+        promoFeedback.classList.remove('hidden', 'text-red-600', 'text-secondary');
+        if (!message) {
+            promoFeedback.classList.add('hidden');
+            return;
+        }
+        promoFeedback.classList.add(isError ? 'text-red-600' : 'text-secondary');
+    }
+
+    function updateSummary() {
+        var promo = getStoredPromo();
+        var totals = getCheckoutTotals() || {};
+        var subtotal = Number(totals.subtotal);
+        if (!Number.isFinite(subtotal)) subtotal = parseMoney(subtotalEl.textContent);
+        var shipping = Number(totals.shipping);
+        if (!Number.isFinite(shipping)) shipping = subtotal > 0 ? SHIPPING_FEE : 0;
+        var taxes = Number(totals.taxes);
+        if (!Number.isFinite(taxes)) taxes = subtotal * TAX_RATE;
+        var discountAmount = promo ? subtotal * (Number(promo.discount_percent) / 100) : 0;
+        writeSummary(subtotal, shipping, taxes, discountAmount);
+    }
+
+    function syncPromoUi() {
+        var promo = getStoredPromo();
+        if (promo) {
+            promoInput.value = promo.code;
+            promoInput.readOnly = true;
+            promoAction.textContent = 'Remove';
+            promoAction.classList.add('text-red-500');
+            promoAction.classList.remove('text-tertiary');
+        } else {
+            promoInput.readOnly = false;
+            promoInput.value = '';
+            promoAction.textContent = 'Apply';
+            promoAction.classList.remove('text-red-500');
+            promoAction.classList.add('text-tertiary');
+        }
+        updateSummary();
+    }
+
+    async function applyPromo(code) {
+        var response = await fetch('/api/discounts/validate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ code: code })
+        });
+        var payload = await response.json();
+        if (!response.ok) throw new Error(payload.error || 'Invalid promo code');
+        localStorage.setItem(storageKey, JSON.stringify({
+            code: payload.code,
+            discount_percent: Number(payload.discount_percent) || 0
+        }));
+        setPromoFeedback('Promo Code Applied!', false);
+        syncPromoUi();
+    }
+
+    promoAction.addEventListener('click', async function () {
+        var activePromo = getStoredPromo();
+        if (activePromo) {
+            localStorage.removeItem(storageKey);
+            setPromoFeedback('Promo code removed.', false);
+            syncPromoUi();
+            return;
+        }
+
+        var code = String(promoInput.value || '').trim();
+        if (!code) {
+            setPromoFeedback('Please enter a promo code.', true);
+            return;
+        }
+
+        try {
+            await applyPromo(code);
+        } catch (error) {
+            setPromoFeedback(error.message || 'Unable to apply promo code.', true);
+        }
+    });
+
+    function initCheckoutSelection() {
+        hydrateCheckoutSelection().catch(function () {
+            if (checkoutItemsContainer && !checkoutItemsContainer.children.length) {
+                checkoutItemsContainer.innerHTML = '<p class="text-sm text-on-surface-variant">Unable to load cart items right now.</p>';
+            }
+            updateSummary();
+        });
+        syncPromoUi();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCheckoutSelection);
+    } else {
+        initCheckoutSelection();
+    }
+})();
+</script>
+<script>
+(function () {
+    var paymentOptions = Array.prototype.slice.call(document.querySelectorAll('[data-payment-option]'));
+
+    function setActivePayment(optionEl) {
+        paymentOptions.forEach(function (el) {
+            var icon = el.querySelector('.material-symbols-outlined');
+            var title = el.querySelector('p');
+            var radio = el.querySelector('[data-payment-radio]');
+            el.classList.remove('bg-surface-container-lowest', 'border-primary');
+            el.classList.add('border-outline-variant/30');
+            if (icon) icon.classList.remove('text-primary');
+            if (icon) icon.classList.add('text-on-surface-variant');
+            if (title) title.classList.remove('text-on-surface');
+            if (title) title.classList.add('text-on-surface');
+            if (radio) {
+                radio.classList.remove('border-primary', 'border-4');
+                radio.classList.add('border', 'border-outline-variant');
+            }
+        });
+
+        var activeIcon = optionEl.querySelector('.material-symbols-outlined');
+        var activeRadio = optionEl.querySelector('[data-payment-radio]');
+        optionEl.classList.add('bg-surface-container-lowest', 'border-primary');
+        optionEl.classList.remove('border-outline-variant/30');
+        if (activeIcon) {
+            activeIcon.classList.remove('text-on-surface-variant');
+            activeIcon.classList.add('text-primary');
+        }
+        if (activeRadio) {
+            activeRadio.classList.remove('border', 'border-outline-variant');
+            activeRadio.classList.add('border-4', 'border-primary');
+        }
+    }
+
+    paymentOptions.forEach(function (option) {
+        option.addEventListener('click', function () {
+            setActivePayment(option);
+        });
+    });
+
+    if (paymentOptions.length) {
+        setActivePayment(paymentOptions[0]);
+    }
+
+})();
+</script>
+<div id="legal-modal" class="hidden fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm p-4 md:p-8"><div id="legal-modal-backdrop" class="absolute inset-0" aria-hidden="true"></div><div class="relative mx-auto mt-8 md:mt-16 w-full max-w-3xl rounded-3xl bg-surface shadow-2xl shadow-black/20 overflow-hidden"><button id="legal-modal-close" type="button" class="absolute right-4 top-4 h-10 w-10 rounded-full text-on-surface-variant hover:bg-surface-container transition-colors" aria-label="Close modal"><span class="text-2xl leading-none">&times;</span></button><div class="px-6 md:px-10 pt-8 pb-6 border-b border-outline-variant/20"><h2 id="legal-modal-title" class="text-3xl md:text-4xl text-on-surface pr-12" style="font-family: 'Noto Serif', serif;">Legal Information</h2></div><div id="legal-modal-body" class="px-6 md:px-10 py-6 max-h-[65vh] overflow-y-auto text-on-surface-variant leading-relaxed space-y-4" style="font-family: 'Plus Jakarta Sans', sans-serif;"></div></div></div>
+<script>(function(){var m=document.getElementById('legal-modal'),t=document.getElementById('legal-modal-title'),b=document.getElementById('legal-modal-body'),c=document.getElementById('legal-modal-close');if(!m||!t||!b||!c)return;var r=/(privacy|terms|shipping|sustainability|refund)/i,links=Array.prototype.slice.call(document.querySelectorAll('footer a')).filter(function(l){return r.test((l.textContent||'').trim());});if(!links.length)return;function html(){return['<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere risus vel arcu feugiat, et faucibus lectus tincidunt. Curabitur aliquet, urna in tincidunt viverra, neque erat dictum sapien, vitae vehicula nulla libero et eros.</p>','<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>','<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>'].join('');}function open(title){t.textContent=title;b.innerHTML=html();m.classList.remove('hidden');document.body.classList.add('overflow-hidden');}function close(){m.classList.add('hidden');document.body.classList.remove('overflow-hidden');}links.forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();open((l.textContent||'Legal Information').trim());});});c.addEventListener('click',close);m.addEventListener('click',function(e){if(e.target===m||e.target.id==='legal-modal-backdrop')close();});})();</script>
+<div id="success-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-brand-espresso/40 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-500">
+    <div class="bg-brand-cream p-12 rounded-2xl shadow-2xl flex flex-col items-center max-w-md text-center transform scale-95 transition-transform duration-500" id="success-card">
+        <div class="w-24 h-24 rounded-full bg-brand-sage/20 flex items-center justify-center mb-6">
+            <svg id="success-check" class="w-12 h-12 text-brand-sage transform scale-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+            </svg>
+        </div>
+        <h2 class="font-serif italic text-3xl text-brand-espresso mb-4">Your Ritual is Complete</h2>
+        <p class="font-sans text-brand-espresso/70 leading-relaxed">
+            Your order has been gracefully placed. You will receive a confirmation raven (or email) shortly.
+        </p>
+    </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const completeBtn = document.getElementById('complete-ritual-btn');
+    const modal = document.getElementById('success-modal');
+    const successCard = document.getElementById('success-card');
+    const checkmark = document.getElementById('success-check');
+    const cardForm = document.getElementById('card-details-form');
+    const walletForm = document.getElementById('wallet-details-form');
+
+    let selectedPaymentMethod = 'CARD';
+
+    const paymentButtons = Array.from(document.querySelectorAll('[data-payment-option]'));
+
+    function showPaymentForm(method) {
+        if (cardForm) cardForm.classList.toggle('hidden', method !== 'CARD');
+        if (walletForm) walletForm.classList.toggle('hidden', method !== 'WALLET');
+    }
+
+    function mapPaymentOption(value) {
+        if (value === 'card') return 'CARD';
+        if (value === 'wallet') return 'WALLET';
+        return 'COD';
+    }
+
+    // Keep existing visual active-state handler (if present) and add form toggling.
+    paymentButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            selectedPaymentMethod = mapPaymentOption(btn.getAttribute('data-payment-option'));
+            showPaymentForm(selectedPaymentMethod);
+        });
+    });
+
+    // Default: CARD selected
+    showPaymentForm('CARD');
+
+    if (completeBtn && modal) {
+        completeBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Stop any default action
+
+            (async () => {
+                const parseMoney = (t) => {
+                    const n = parseFloat(String(t || '0').replace(/[^0-9.-]/g, ''));
+                    return Number.isFinite(n) ? n : 0;
+                };
+
+                // Totals from DOM
+                const subtotal = parseMoney((document.getElementById('summary-subtotal') || {}).textContent);
+                const shippingFee = parseMoney((document.getElementById('summary-shipping') || {}).textContent);
+                const totalAmount = parseMoney((document.getElementById('summary-total') || {}).textContent);
+
+                // Discount from DOM (if row visible)
+                const discountRow = document.getElementById('summary-discount-row');
+                const discountApplied = (discountRow && !discountRow.classList.contains('hidden'))
+                    ? parseMoney((document.getElementById('summary-discount') || {}).textContent)
+                    : 0;
+
+                // Payment details based on selection
+                let paymentDetails = {};
+                if (selectedPaymentMethod === 'CARD') {
+                    const cardNumberRaw = (document.getElementById('card-number') || {}).value || '';
+                    const expiry = (document.getElementById('card-expiry') || {}).value || '';
+                    const cvv = (document.getElementById('card-cvv') || {}).value || '';
+                    const nameOnCard = (document.getElementById('card-name') || {}).value || '';
+
+                    const digits = String(cardNumberRaw).replace(/\D/g, '');
+                    if (digits.length < 12 || !expiry.trim() || !cvv.trim() || !nameOnCard.trim()) {
+                        if (typeof window.showAppToast === 'function') window.showAppToast('Please complete your card details.', 'error');
+                        return;
+                    }
+
+                    paymentDetails = {
+                        name_on_card: nameOnCard.trim(),
+                        cardNumber: digits,
+                        expiry: expiry.trim(),
+                        cvv: cvv.trim() // backend will discard
+                    };
+                } else if (selectedPaymentMethod === 'WALLET') {
+                    const provider = (document.getElementById('wallet-provider') || {}).value || '';
+                    const accountNumber = (document.getElementById('wallet-account') || {}).value || '';
+                    if (!provider || !String(accountNumber).trim()) {
+                        if (typeof window.showAppToast === 'function') window.showAppToast('Please complete your wallet details.', 'error');
+                        return;
+                    }
+                    paymentDetails = {
+                        provider,
+                        account_number: String(accountNumber).trim()
+                    };
+                }
+
+                const token = localStorage.getItem('token');
+
+                const orderRes = await fetch('/api/orders', {
+                    method: 'POST',
+                    headers: Object.assign(
+                        { 'Content-Type': 'application/json' },
+                        token ? { Authorization: `Bearer ${token}` } : {}
+                    ),
+                    body: JSON.stringify({
+                        items: (() => {
+                            // Prefer local cart, then checkout snapshot hydrated from backend cart.
+                            try {
+                                const localCart = JSON.parse(localStorage.getItem('cart') || 'null');
+                                if (Array.isArray(localCart)) return localCart;
+                                if (localCart && Array.isArray(localCart.items)) return localCart.items;
+                                const checkoutSnapshot = JSON.parse(localStorage.getItem('checkout_items_snapshot') || 'null');
+                                if (Array.isArray(checkoutSnapshot)) return checkoutSnapshot;
+                            } catch (_) {}
+                            return [];
+                        })().map((it) => ({
+                            product_id: it.product_id ?? it.productId,
+                            quantity: it.quantity,
+                            price: it.price ?? it.unit_price
+                        })),
+                        subtotal,
+                        discount_applied: Math.abs(discountApplied),
+                        shipping_fee: shippingFee,
+                        total_amount: totalAmount,
+                        payment_method: selectedPaymentMethod,
+                        payment_details: paymentDetails
+                    })
+                });
+
+                const orderPayload = await orderRes.json();
+                if (!orderRes.ok) throw new Error(orderPayload.error || 'Failed to place order');
+
+                // 1. Fade in the background modal
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.classList.add('opacity-100');
+
+                // 2. Scale up the card
+                successCard.classList.remove('scale-95');
+                successCard.classList.add('scale-100');
+
+                // 3. Pop animation for the green checkmark (delay slightly for effect)
+                setTimeout(() => {
+                    checkmark.style.transition = 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                    checkmark.style.transform = 'scale(1)';
+                }, 200);
+
+                // 4. Clear LocalStorage Cart & Promo (Cleanup)
+                localStorage.removeItem('cafflora_promo');
+                localStorage.removeItem('cart');
+
+                // 5. Redirect to Home after 4 seconds
+                setTimeout(() => {
+                    window.location.href = '/home';
+                }, 4000);
+            })().catch((err) => {
+                console.error(err);
+                if (typeof window.showAppToast === 'function') {
+                    window.showAppToast(err.message || 'Unable to complete checkout right now.', 'error');
+                }
+            });
+        });
+    }
+});
+</script>
+</body></html>

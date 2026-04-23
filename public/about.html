@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>F - About</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#ffc3a5",
+                    "secondary-container": "#cdebc4",
+                    "primary-fixed-dim": "#e8bbc5",
+                    "on-secondary-fixed": "#092008",
+                    "on-background": "#1c1c18",
+                    "surface-container-high": "#ebe8e2",
+                    "on-surface": "#1c1c18",
+                    "outline-variant": "#d3c3c5",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#dddad4",
+                    "primary": "#78555d",
+                    "tertiary-fixed-dim": "#ffb690",
+                    "primary-fixed": "#ffd9e1",
+                    "on-surface-variant": "#4f4446",
+                    "surface-container-low": "#f7f3ed",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#e8bbc5",
+                    "surface-bright": "#fdf9f3",
+                    "on-secondary-container": "#516b4c",
+                    "on-tertiary-fixed-variant": "#723611",
+                    "surface-container": "#f1ede7",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#2d131b",
+                    "on-tertiary-fixed": "#341100",
+                    "tertiary": "#8f4d27",
+                    "surface-tint": "#78555d",
+                    "on-secondary-fixed-variant": "#344d30",
+                    "surface-container-highest": "#e6e2dc",
+                    "on-primary-container": "#724f58",
+                    "tertiary-fixed": "#ffdbca",
+                    "secondary-fixed-dim": "#b1cfa9",
+                    "primary-container": "#f2c4ce",
+                    "background": "#fdf9f3",
+                    "surface": "#fdf9f3",
+                    "outline": "#817476",
+                    "on-error-container": "#93000a",
+                    "secondary": "#4b6546",
+                    "secondary-fixed": "#cdebc4",
+                    "inverse-surface": "#31302d",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#e6e2dc",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#884722",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#5e3e46",
+                    "inverse-on-surface": "#f4f0ea",
+                    "brand-espresso": "#3B2314",
+                    "espresso": "#2D131B"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FDF9F3; }
+        .font-serif { font-family: 'Noto Serif', serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 bg-[#FDF9F3] border-b border-brand-espresso/5">
+<div class="flex items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<!-- Left Zone -->
+<div class="flex-none">
+<a class="text-3xl font-serif italic text-brand-espresso" href="/home">Cafflora</a>
+</div>
+<!-- Center Zone -->
+<div class="flex-1 flex justify-start ml-16">
+<div class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide">
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/home">Home</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/menu">Menu</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/shop">Shop</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/discounts">Discounts</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/about">About</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/contact">Contact</a>
+</div>
+</div>
+<!-- Right Zone -->
+<div class="flex items-center space-x-10 flex-none">
+<!-- Sub-group A -->
+<div class="hidden lg:flex items-center space-x-6">
+<a class="text-brand-espresso/60 hover:text-brand-espresso transition-colors duration-200" href="/coffee">
+<span class="material-symbols-outlined text-2xl">coffee</span>
+</a>
+<a class="text-brand-espresso/60 hover:text-brand-espresso transition-colors duration-200" href="/books">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+</a>
+<a class="text-brand-espresso/60 hover:text-brand-espresso transition-colors duration-200" href="/flowers">
+<span class="material-symbols-outlined text-2xl">local_florist</span>
+</a>
+</div>
+<!-- Sub-group B -->
+<div class="flex items-center space-x-6">
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200 flex items-center" href="/cart">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+</a>
+<a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-brand-espresso hover:opacity-70 transition-opacity header-auth-link" id="header-auth-link" href="/sign-in">Sign In</a>
+<button type="button" id="header-logout-btn" class="hidden text-xs font-semibold text-brand-espresso/80 hover:opacity-70 underline underline-offset-2">Logout</button>
+</div>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-brand-espresso" onclick="document.getElementById('side-nav').classList.remove('translate-x-full')">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Mobile/Drawer) -->
+<div class="fixed inset-y-0 right-0 w-[88vw] max-w-96 z-[60] bg-[#FDF9F3] shadow-2xl translate-x-full transition-transform duration-500 ease-in-out" id="side-nav">
+<div class="flex flex-col h-full p-6">
+<div class="flex justify-between items-center mb-12">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">local_florist</span>
+</div>
+<div>
+<h2 class="text-2xl font-serif text-[#78555D]">The Botanical Atelier</h2>
+<p class="text-sm opacity-70">Curated Sanctuary</p>
+</div>
+</div>
+<button onclick="document.getElementById('side-nav').classList.add('translate-x-full')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-4 font-['Plus_Jakarta_Sans'] font-medium">
+<a class="bg-[#F2C4CE] text-[#78555D] rounded-full px-4 py-2 flex items-center gap-3" href="/home">
+<span class="material-symbols-outlined">home</span> Home
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/menu">
+<span class="material-symbols-outlined">restaurant_menu</span> Menu
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/shop">
+<span class="material-symbols-outlined">local_florist</span> Shop
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/discounts">
+<span class="material-symbols-outlined">local_offer</span> Discounts
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/about">
+<span class="material-symbols-outlined">info</span> About
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/contact">
+<span class="material-symbols-outlined">mail</span> Contact
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3 header-auth-link" id="header-auth-link-drawer" href="/sign-in">
+<span class="material-symbols-outlined">login</span><span class="header-auth-label">Sign In</span>
+                </a>
+</div>
+</div>
+</div>
+<main class="pt-16 pb-16">
+<!-- Editorial Hero Section -->
+<section class="max-w-screen-2xl mx-auto px-8 lg:px-24 mb-32">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7">
+<h1 class="text-6xl md:text-8xl font-serif italic text-on-surface leading-tight mb-8 tracking-tighter">
+                        A Sanctuary for <br/><span class="text-primary">Slow Mornings.</span>
+</h1>
+<div class="max-w-xl space-y-6">
+<p class="text-xl text-on-surface-variant font-body leading-relaxed">Cafflora began in a sun-drenched corner of a quiet street, born from the belief that coffee and flowers are the two simplest ways to cultivate joy.</p>
+<p class="text-lg text-on-surface-variant opacity-80 font-body leading-relaxed">
+                            We curate our space to be an extension of your own living room—a botanical atelier where the scent of heirloom roses mingles with artisanal roasts. Every bloom is hand-selected, and every cup is poured with intention.
+                        </p>
+</div>
+</div>
+<div class="lg:col-span-5 relative mt-12 lg:mt-0">
+<div class="relative z-10 rounded-xl overflow-hidden aspect-[4/5] shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Dreamy close-up of a rustic wooden table with a latte next to a small glass vase of dried wildflowers in soft afternoon light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc7JyiE75Q1_ZiTLXrt6O0uWEZmk_ot7MGlvTH76RSVvt7XpFAQZn5_TB1kn23OBSGjeuUMW9n30xBf3XimYcFIVG8KSAbkFK5731poJ_MOLVruWXg0jDrvvblqHveytr1RjBz6IbMqq5q3qSwqBRxnDPjOOuzhMcsJUdjtByeg3alim4_n3jQ4_eBIt-FouYi50oQw72FcX3k5JmCgMPjnd0W5ev3Z5OM9TXVG0r-pcLdbLA-q6H1Nd2_wj4DX8cqQXZxPcL4Rf-O"/>
+</div>
+<div class="absolute -bottom-8 -left-8 w-48 h-48 bg-primary-container rounded-full -z-10 opacity-30 blur-2xl"></div>
+<div class="absolute -top-12 -right-6 text-primary/10 select-none">
+<span class="material-symbols-outlined text-[160px]" style="font-variation-settings: 'FILL' 1;">local_florist</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Values Section (Pressed Flower Chips Style) -->
+<section class="bg-surface-container-low py-24 mb-32">
+<div class="max-w-7xl mx-auto px-8 text-center">
+<span class="font-label uppercase tracking-[0.2em] text-primary text-xs mb-4 block">Our Ethos</span>
+<h2 class="text-4xl font-serif text-on-surface mb-16">Roots of Integrity</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="flex flex-col items-center group">
+<div class="w-16 h-16 rounded-full bg-surface-bright flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary text-3xl">eco</span>
+</div>
+<h3 class="font-serif text-2xl text-on-surface mb-3">Freshness</h3>
+<p class="text-on-surface-variant leading-relaxed">We source seasonally, ensuring every stem and bean is at its peak peak of vitality and flavor.</p>
+</div>
+<div class="flex flex-col items-center group">
+<div class="w-16 h-16 rounded-full bg-surface-bright flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary text-3xl">groups</span>
+</div>
+<h3 class="font-serif text-2xl text-on-surface mb-3">Community</h3>
+<p class="text-on-surface-variant leading-relaxed">Cafflora is a shared home for local artists, thinkers, and neighbors to connect over beauty.</p>
+</div>
+<div class="flex flex-col items-center group">
+<div class="w-16 h-16 rounded-full bg-surface-bright flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary text-3xl">auto_awesome</span>
+</div>
+<h3 class="font-serif text-2xl text-on-surface mb-3">Creativity</h3>
+<p class="text-on-surface-variant leading-relaxed">Every arrangement is a bespoke piece of art, crafted with artisanal curiosity and love.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Photo Gallery Strip -->
+<section class="mb-32 overflow-hidden">
+<div class="flex gap-4 px-4 h-[400px] items-center">
+<div class="flex-none w-1/4 h-full rounded-xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Cozy cafe interior with light wood tables, white walls, and dozens of hanging plants creating a lush indoor jungle atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFV1-UPGS3a7NEqCGj63oRUBe1YL7yOaSAZS748TVPqzd5nS5ffuizAAhEHK4gIsDAf444IcG_BGHLR90x4vQZDvpuv5-85jqEcYQQ5-yTxK9bZHfFXxcGlaON_m5wVLol8-j9m16Az52TekD6vib-CzBmSoMmBXY6uhcsl0Pzu2_bhhYjsgdP-bQ4BeRD7_-PLUpC97eonfSA1nYTMhfwdVj7BU4WI5A0JrYf05xv4JOet5QsCBe5Np5YzI3OV29R6VCdBe4LgZli"/>
+</div>
+<div class="flex-none w-1/2 h-[500px] rounded-xl overflow-hidden shadow-md">
+<img class="w-full h-full object-cover" data-alt="Sun-drenched barista counter featuring marble surfaces, brass details, and a high-end espresso machine surrounded by fresh eucalyptus branches" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-SwHiJoVk2CyxRjdI8n4OY8LgoLrB5NS-B7Gpp-D1ndt613mucQbBXxDNiJfoE_8sGXpqRe9umuAMWbfHycg40iZmU5sZKoxe0gW6EhWFcjLY2oqMky8pGbU7wNuzn5yZS3wuvg3Bt_wbOiKzw_KCB5oy27RPznoP7zRSXvgjZXkLcD3dmW2AHxtpSYhUO9ZfTu8kcHLIvQMs3KhcqxOjqLm8i02mfytu8EkNRKJ-EGNY0fXlFZ6Pu4QEAmgU5dG4TIiY4w-7GbT0"/>
+</div>
+<div class="flex-none w-1/4 h-full rounded-xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Detail of a minimalist flower shop nook with terra cotta pots and bundles of sage wrapped in twine on a stone shelf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcL2RkcDsc8PDEx3xa3l9cKBxN9QljcaA2ljL2Gn23qemDNshP9cMglRDFzIZyBlsXtcnVOiACQqWzZoCkcHG89HUPn63JN3_3RYmHba4SKZnUvaEqwgjJ7ok8tylGJ6oRuiuIH2AOZ-mzqQn1qBbsgsbDOglH-cUTOrBXvaP5-OH8LJvy6vWuqAO8BbomTto9SDPaznA9nduc6niH_juLVNzuVpf07C3N5etk-YE5N4jJjfhEG8UUCErc7yG0Q7r_ZEWiOgDOgsFq"/>
+</div>
+</div>
+</section>
+<!-- Team Section -->
+<section class="max-w-6xl mx-auto px-8 mb-32">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-serif text-on-surface mb-4">The Gentle Hands</h2>
+<p class="text-on-surface-variant">The makers, growers, and baristas behind the atelier.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+<!-- Team Card 1 -->
+<div class="text-center group">
+<div class="aspect-square rounded-full overflow-hidden mb-6 mx-auto w-40 h-40 border-4 border-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="Portrait of Muntazir Mehdi" src="/image_530045.jpg"/>
+</div>
+<h4 class="font-serif text-xl text-on-surface">Muntazir Mehdi</h4>
+<p class="font-label text-xs uppercase tracking-widest text-primary opacity-70 mb-3">Co-Founder &amp; Lead Visionary</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">Passionate about merging botanical aesthetics with modern specialty coffee culture.</p>
+</div>
+<!-- Team Card 2 -->
+<div class="text-center group">
+<div class="aspect-square rounded-full overflow-hidden mb-6 mx-auto w-40 h-40 border-4 border-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="Portrait of Sumayya Emaan" src="/image_529b89.jpg"/>
+</div>
+<h4 class="font-serif text-xl text-on-surface">Sumayya Emaan</h4>
+<p class="font-label text-xs uppercase tracking-widest text-primary opacity-70 mb-3">Co-Founder &amp; Experience Director</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">Dedicated to creating a sanctuary where every customer feels a personal connection to nature.</p>
+</div>
+<!-- Team Card 3 -->
+<div class="text-center group">
+<div class="aspect-square rounded-full overflow-hidden mb-6 mx-auto w-40 h-40 border-4 border-surface-container grayscale group-hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="Portrait of Rimsha Khalid" src="/image_530064.jpg"/>
+</div>
+<h4 class="font-serif text-xl text-on-surface">Rimsha Khalid</h4>
+<p class="font-label text-xs uppercase tracking-widest text-primary opacity-70 mb-3">Head Botanist &amp; Product Manager</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">Expert in rare flora, ensuring every bloom at Cafflora is ethically sourced and perfectly curated.</p>
+</div>
+</div>
+</section>
+<!-- Final Editorial CTA -->
+<section class="max-w-4xl mx-auto px-8 text-center pb-24">
+<div class="p-16 bg-primary-container/20 rounded-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-[120px]">local_cafe</span>
+</div>
+<h2 class="text-4xl font-serif text-on-surface mb-6 italic">Come sit with us.</h2>
+<p class="text-lg text-on-surface-variant mb-10 max-w-lg mx-auto">Discover the intersection of botanical design and artisanal coffee. Our doors are open daily from sunrise to golden hour.</p>
+<a class="inline-block px-12 py-4 bg-primary text-on-primary rounded-full font-label tracking-wide hover:opacity-90 transition-opacity" href="/contact">Contact The Atelier</a>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-dim dark:bg-stone-900 w-full mt-auto py-12 flex flex-col items-center gap-6 px-8">
+<a class="text-lg font-bold text-on-surface font-headline uppercase tracking-[0.2em] hover:opacity-75 transition-opacity" href="/home">Cafflora</a>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Contact Us</a>
+</div>
+<p class="text-on-surface-variant font-body text-xs uppercase tracking-widest opacity-60">© 2024 Cafflora Botanical Atelier</p>
+</footer>
+<script>
+(function () {
+    var authLinks = document.querySelectorAll('.header-auth-link');
+    var logoutBtn = document.getElementById('header-logout-btn');
+    var token = localStorage.getItem('token');
+    var userRaw = localStorage.getItem('user');
+    function firstNameFromUser(u) {
+        var name = (u && (u.full_name || u.name || '')) || '';
+        var parts = String(name).trim().split(/\s+/);
+        return parts[0] || 'Account';
+    }
+    function setSignedOut() {
+        authLinks.forEach(function (a) {
+            a.href = '/sign-in';
+            if (a.id === 'header-auth-link-drawer') {
+                var label = a.querySelector('.header-auth-label');
+                if (label) label.textContent = 'Sign In';
+            } else {
+                a.textContent = 'Sign In';
+            }
+        });
+        if (logoutBtn) logoutBtn.classList.add('hidden');
+    }
+    if (token && userRaw) {
+        try {
+            var user = JSON.parse(userRaw);
+            var fn = firstNameFromUser(user);
+            authLinks.forEach(function (a) {
+                a.href = '/profile';
+                if (a.id === 'header-auth-link-drawer') {
+                    var label = a.querySelector('.header-auth-label');
+                    if (label) label.textContent = fn;
+                } else {
+                    a.textContent = fn;
+                }
+            });
+            if (logoutBtn) {
+                logoutBtn.classList.remove('hidden');
+                logoutBtn.onclick = function () {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                    window.location.href = '/home';
+                };
+            }
+        } catch (e) {
+            setSignedOut();
+        }
+    } else {
+        setSignedOut();
+    }
+})();
+</script>
+<div id="legal-modal" class="hidden fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm p-4 md:p-8"><div id="legal-modal-backdrop" class="absolute inset-0" aria-hidden="true"></div><div class="relative mx-auto mt-8 md:mt-16 w-full max-w-3xl rounded-3xl bg-surface shadow-2xl shadow-black/20 overflow-hidden"><button id="legal-modal-close" type="button" class="absolute right-4 top-4 h-10 w-10 rounded-full text-on-surface-variant hover:bg-surface-container transition-colors" aria-label="Close modal"><span class="text-2xl leading-none">&times;</span></button><div class="px-6 md:px-10 pt-8 pb-6 border-b border-outline-variant/20"><h2 id="legal-modal-title" class="text-3xl md:text-4xl text-on-surface pr-12" style="font-family: 'Noto Serif', serif;">Legal Information</h2></div><div id="legal-modal-body" class="px-6 md:px-10 py-6 max-h-[65vh] overflow-y-auto text-on-surface-variant leading-relaxed space-y-4" style="font-family: 'Plus Jakarta Sans', sans-serif;"></div></div></div>
+<script>(function(){var m=document.getElementById('legal-modal'),t=document.getElementById('legal-modal-title'),b=document.getElementById('legal-modal-body'),c=document.getElementById('legal-modal-close');if(!m||!t||!b||!c)return;var r=/(privacy|terms|shipping|sustainability|refund)/i,links=Array.prototype.slice.call(document.querySelectorAll('footer a')).filter(function(l){return r.test((l.textContent||'').trim());});if(!links.length)return;function html(){return['<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere risus vel arcu feugiat, et faucibus lectus tincidunt. Curabitur aliquet, urna in tincidunt viverra, neque erat dictum sapien, vitae vehicula nulla libero et eros.</p>','<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>','<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>'].join('');}function open(title){t.textContent=title;b.innerHTML=html();m.classList.remove('hidden');document.body.classList.add('overflow-hidden');}function close(){m.classList.add('hidden');document.body.classList.remove('overflow-hidden');}links.forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();open((l.textContent||'Legal Information').trim());});});c.addEventListener('click',close);m.addEventListener('click',function(e){if(e.target===m||e.target.id==='legal-modal-backdrop')close();});})();</script>
+</body></html>

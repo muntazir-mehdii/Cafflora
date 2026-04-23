@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cafflora | Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['Noto Serif', 'serif'],
+          sans: ['Plus Jakarta Sans', 'sans-serif']
+        }
+      }
+    }
+  };
+</script>
+</head>
+<body class="bg-[#fdf9f3] text-[#1c1c18] min-h-screen font-sans">
+<main class="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20">
+  <header class="mb-10 md:mb-14">
+    <a class="font-serif italic text-3xl text-[#78555d] hover:opacity-80 transition-opacity" href="/home">Cafflora</a>
+    <h1 class="font-serif text-4xl md:text-5xl mt-6 text-[#3b2314]">Your Profile</h1>
+    <p class="text-[#4f4446] mt-4 max-w-2xl">
+      A serene view of your account activity and order journey through the atelier.
+    </p>
+  </header>
+
+  <section class="rounded-3xl border border-[#d3c3c5]/50 bg-white/50 backdrop-blur-sm p-6 md:p-10 shadow-[0_10px_40px_rgba(59,35,20,0.06)]">
+    <div class="flex items-center justify-between gap-4 mb-8">
+      <h2 class="font-serif text-2xl md:text-3xl text-[#3b2314]">Order History</h2>
+      <a href="/shop" class="inline-flex items-center gap-2 rounded-full bg-[#78555d] text-white px-5 py-2.5 text-xs tracking-widest font-semibold uppercase hover:bg-[#5e3e46] transition-colors">
+        Explore Atelier
+      </a>
+    </div>
+    <div id="order-history-container" class="mt-8 max-w-4xl mx-auto w-full">
+      <p class="text-sm text-[#6d5f62]">Loading your order history...</p>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var container = document.getElementById('order-history-container');
+
+  function formatCurrency(value) {
+    var amount = Number(value) || 0;
+    return '$' + amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function formatDate(dateValue) {
+    var date = new Date(dateValue);
+    if (Number.isNaN(date.getTime())) return 'Unknown date';
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
+  function statusClasses(status) {
+    var normalized = String(status || '').toUpperCase();
+    if (normalized === 'COMPLETED') {
+      return 'bg-[#cdebc4] text-[#344d30] border-[#b1cfa9]';
+    }
+    if (normalized === 'PENDING') {
+      return 'bg-[#ffdbca] text-[#723611] border-[#ffc3a5]';
+    }
+    if (normalized === 'CANCELLED') {
+      return 'bg-[#ffdad6] text-[#93000a] border-[#f2b8b5]';
+    }
+    return 'bg-[#f1ede7] text-[#4f4446] border-[#d3c3c5]';
+  }
+
+  function paymentLabel(method) {
+    var normalized = String(method || '').toUpperCase();
+    if (normalized === 'COD') return 'Cash on Delivery';
+    if (normalized === 'CARD') return 'Card';
+    if (normalized === 'WALLET') return 'Wallet';
+    return normalized || 'Unknown';
+  }
+
+  function renderEmptyState() {
+    container.innerHTML = [
+      '<div class="rounded-2xl border border-[#d3c3c5]/60 bg-[#fdf9f3] p-8 md:p-10 text-center">',
+      '<h3 class="font-serif text-2xl text-[#3b2314]">No Orders Yet</h3>',
+      '<p class="mt-3 text-[#5f5457] max-w-xl mx-auto">You haven\'t placed any orders yet. Explore our atelier to begin your journey.</p>',
+      '<a href="/shop" class="mt-6 inline-flex items-center justify-center rounded-full bg-[#78555d] text-white px-7 py-3 text-xs tracking-[0.18em] font-semibold uppercase hover:bg-[#5e3e46] transition-colors">Browse The Shop</a>',
+      '</div>'
+    ].join('');
+  }
+
+  function renderErrorState(message) {
+    container.innerHTML = [
+      '<div class="rounded-2xl border border-[#ffdad6] bg-[#fff8f7] p-6">',
+      '<p class="text-sm text-[#93000a]">' + message + '</p>',
+      '</div>'
+    ].join('');
+  }
+
+  function renderOrderHistory(orders) {
+    if (!Array.isArray(orders) || !orders.length) {
+      renderEmptyState();
+      return;
+    }
+
+    container.innerHTML = orders.map(function (order) {
+      var orderNumber = String(order.order_number || 'ORD-UNKNOWN');
+      var status = String(order.order_status || 'PENDING').toUpperCase();
+      return [
+        '<article class="rounded-2xl border border-[#d3c3c5]/50 bg-white/80 p-5 md:p-6 mb-4 shadow-sm">',
+        '<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">',
+        '<div>',
+        '<p class="text-[11px] uppercase tracking-[0.2em] text-[#7a6d70]">Order Number</p>',
+        '<p class="font-semibold text-[#4f4446] mt-1">' + orderNumber + '</p>',
+        '<p class="text-sm text-[#6d5f62] mt-3">' + formatDate(order.created_at) + '</p>',
+        '</div>',
+        '<div class="md:text-right">',
+        '<p class="font-serif text-2xl text-[#3b2314]">' + formatCurrency(order.total_amount) + '</p>',
+        '<p class="text-xs uppercase tracking-[0.16em] text-[#7a6d70] mt-1">' + paymentLabel(order.payment_method) + '</p>',
+        '<span class="inline-flex mt-3 rounded-full border px-3 py-1 text-[11px] font-semibold tracking-widest ' + statusClasses(status) + '">' + status + '</span>',
+        '</div>',
+        '</div>',
+        '</article>'
+      ].join('');
+    }).join('');
+  }
+
+  async function loadOrders() {
+    if (!container) return;
+    var token = localStorage.getItem('token');
+    if (!token) {
+      renderErrorState('Please sign in to view your order history.');
+      return;
+    }
+
+    try {
+      var response = await fetch('/api/orders/my-orders', {
+        headers: {
+          Authorization: 'Bearer ' + token
+        }
+      });
+      var payload = await response.json().catch(function () { return []; });
+      if (!response.ok) {
+        throw new Error((payload && payload.error) || 'Unable to load your order history.');
+      }
+      renderOrderHistory(Array.isArray(payload) ? payload : []);
+    } catch (error) {
+      console.error(error);
+      renderErrorState(error.message || 'Unable to load your order history.');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadOrders);
+})();
+</script>
+</body>
+</html>

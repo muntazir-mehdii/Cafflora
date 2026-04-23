@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>F - Contact</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="/js/ui-toast.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#ffc3a5",
+                        "secondary-container": "#cdebc4",
+                        "primary-fixed-dim": "#e8bbc5",
+                        "on-secondary-fixed": "#092008",
+                        "on-background": "#1c1c18",
+                        "surface-container-high": "#ebe8e2",
+                        "on-surface": "#1c1c18",
+                        "outline-variant": "#d3c3c5",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dddad4",
+                        "primary": "#78555d",
+                        "tertiary-fixed-dim": "#ffb690",
+                        "primary-fixed": "#ffd9e1",
+                        "on-surface-variant": "#4f4446",
+                        "surface-container-low": "#f7f3ed",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#e8bbc5",
+                        "surface-bright": "#fdf9f3",
+                        "on-secondary-container": "#516b4c",
+                        "on-tertiary-fixed-variant": "#723611",
+                        "surface-container": "#f1ede7",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#2d131b",
+                        "on-tertiary-fixed": "#341100",
+                        "tertiary": "#8f4d27",
+                        "surface-tint": "#78555d",
+                        "on-secondary-fixed-variant": "#344d30",
+                        "surface-container-highest": "#e6e2dc",
+                        "on-primary-container": "#724f58",
+                        "tertiary-fixed": "#ffdbca",
+                        "secondary-fixed-dim": "#b1cfa9",
+                        "primary-container": "#f2c4ce",
+                        "background": "#fdf9f3",
+                        "surface": "#fdf9f3",
+                        "outline": "#817476",
+                        "on-error-container": "#93000a",
+                        "secondary": "#4b6546",
+                        "secondary-fixed": "#cdebc4",
+                        "inverse-surface": "#31302d",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e6e2dc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#884722",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#5e3e46",
+                        "inverse-on-surface": "#f4f0ea",
+                        "brand-espresso": "#3B2314",
+                        "espresso": "#3c2a21"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        h1, h2, h3, .font-serif { font-family: 'Noto Serif', serif; }
+        .nav-link { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; letter-spacing: 0.025em; transition: opacity 0.3s; }
+        .nav-link:hover { opacity: 0.6; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container" data-mode="connect">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 bg-[#FDF9F3] border-b border-brand-espresso/5">
+<div class="flex items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<!-- Left Zone -->
+<div class="flex-none">
+<a class="text-3xl font-serif italic text-brand-espresso" href="/home">Cafflora</a>
+</div>
+<!-- Center Zone -->
+<div class="flex-1 flex justify-start ml-16">
+<div class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide">
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/home">Home</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/menu">Menu</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/shop">Shop</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/discounts">Discounts</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/about">About</a>
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200" href="/contact">Contact</a>
+</div>
+</div>
+<!-- Right Zone -->
+<div class="flex items-center space-x-10 flex-none">
+<!-- Sub-group A -->
+<div class="hidden lg:flex items-center space-x-6">
+<a class="text-brand-espresso/60 hover:text-brand-espresso transition-colors duration-200" href="/coffee">
+<span class="material-symbols-outlined text-2xl">coffee</span>
+</a>
+<a class="text-brand-espresso/60 hover:text-brand-espresso transition-colors duration-200" href="/books">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+</a>
+<a class="text-brand-espresso/60 hover:text-brand-espresso transition-colors duration-200" href="/flowers">
+<span class="material-symbols-outlined text-2xl">local_florist</span>
+</a>
+</div>
+<!-- Sub-group B -->
+<div class="flex items-center space-x-6">
+<a class="text-brand-espresso/80 hover:text-brand-espresso transition-colors duration-200 flex items-center" href="/cart">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+</a>
+<a class="font-['Plus_Jakarta_Sans'] font-semibold text-sm text-brand-espresso hover:opacity-70 transition-opacity header-auth-link" id="header-auth-link" href="/sign-in">Sign In</a>
+<button type="button" id="header-logout-btn" class="hidden text-xs font-semibold text-brand-espresso/80 hover:opacity-70 underline underline-offset-2">Logout</button>
+</div>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-brand-espresso" onclick="document.getElementById('side-nav').classList.remove('translate-x-full')">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Mobile/Drawer) -->
+<div class="fixed inset-y-0 right-0 w-[88vw] max-w-96 z-[60] bg-[#FDF9F3] shadow-2xl translate-x-full transition-transform duration-500 ease-in-out" id="side-nav">
+<div class="flex flex-col h-full p-6">
+<div class="flex justify-between items-center mb-12">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">local_florist</span>
+</div>
+<div>
+<h2 class="text-2xl font-serif text-[#78555D]">The Botanical Atelier</h2>
+<p class="text-sm opacity-70">Curated Sanctuary</p>
+</div>
+</div>
+<button onclick="document.getElementById('side-nav').classList.add('translate-x-full')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-4 font-['Plus_Jakarta_Sans'] font-medium">
+<a class="bg-[#F2C4CE] text-[#78555D] rounded-full px-4 py-2 flex items-center gap-3" href="/home">
+<span class="material-symbols-outlined">home</span> Home
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/menu">
+<span class="material-symbols-outlined">restaurant_menu</span> Menu
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/shop">
+<span class="material-symbols-outlined">local_florist</span> Shop
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/discounts">
+<span class="material-symbols-outlined">local_offer</span> Discounts
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/about">
+<span class="material-symbols-outlined">info</span> About
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3" href="/contact">
+<span class="material-symbols-outlined">mail</span> Contact
+                </a>
+<a class="text-[#1C1C18] opacity-70 px-4 py-2 hover:bg-[#F2C4CE]/20 transition-colors flex items-center gap-3 header-auth-link" id="header-auth-link-drawer" href="/sign-in">
+<span class="material-symbols-outlined">login</span><span class="header-auth-label">Sign In</span>
+                </a>
+</div>
+</div>
+</div>
+<main class="pt-32 pb-24 px-8 max-w-7xl mx-auto">
+<!-- Hero Header -->
+<header class="mb-20 text-center md:text-left">
+<h1 class="text-6xl md:text-8xl font-serif text-on-surface mb-6 leading-tight tracking-tight">Get in Touch</h1>
+<p class="text-xl md:text-2xl text-on-surface-variant max-w-2xl font-body leading-relaxed opacity-80">
+                Whether you seek a bespoke bouquet or a quiet corner for coffee, our doors and hearts are open.
+            </p>
+</header>
+<!-- Contact Stack Layout -->
+<div class="max-w-5xl mx-auto space-y-8">
+<!-- Contact Form Section -->
+<section class="bg-surface-container-lowest rounded-xl p-8 md:p-12 shadow-[0_32px_64px_-12px_rgba(28,28,24,0.06)]">
+<h2 class="text-3xl font-serif text-primary mb-8">Send a Message</h2>
+<form class="space-y-8" id="contact-form">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="relative">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2 block">Name</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-colors py-3 px-0 placeholder:opacity-30" id="contact-name" placeholder="Your full name" type="text"/>
+</div>
+<div class="relative">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2 block">Email</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-colors py-3 px-0 placeholder:opacity-30" id="contact-email" placeholder="hello@example.com" type="email"/>
+</div>
+</div>
+<div class="relative">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2 block">Message</label>
+<textarea class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-colors py-3 px-0 placeholder:opacity-30 resize-none" id="contact-message" placeholder="How can we help you today?" rows="4"></textarea>
+</div>
+<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-bold tracking-wide hover:opacity-90 transition-all flex items-center gap-2 group" id="contact-submit" type="submit">
+                        Submit Inquiry
+                        <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+</form>
+</section>
+<!-- Social Media -->
+<div class="bg-surface-container-high rounded-xl p-8">
+<h3 class="text-xl font-serif text-on-surface mb-4">Follow Our Growth</h3>
+<div class="flex gap-4">
+<a class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all shadow-sm" href="https://www.instagram.com" target="_blank">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all shadow-sm" href="https://www.facebook.com" target="_blank">
+<span class="material-symbols-outlined">photo_camera</span>
+</a>
+<a class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all shadow-sm" href="https://www.pinterest.com" target="_blank">
+<span class="material-symbols-outlined">movie</span>
+</a>
+</div>
+</div>
+<!-- Info & Aesthetics Section -->
+<aside class="space-y-8">
+<!-- Info Card -->
+<div class="bg-secondary-container rounded-xl p-8 text-on-secondary-container">
+<h3 class="text-2xl font-serif mb-6">Atelier Details</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<span class="material-symbols-outlined">location_on</span>
+<div>
+<p class="font-bold">Visit Us</p>
+<p class="opacity-80">NUST, Hostels<br/></p><div class="">Islmabad, Pakistan</div><p></p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined">call</span>
+<div>
+<p class="font-bold">Phone</p>
+<p class="opacity-80">+92 300 6379647</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined">schedule</span>
+<div>
+<p class="font-bold">Hours of Operation</p>
+<p class="opacity-80">Mon - Sat: 08:00 — 19:00<br/>Sunday: 09:00 — 17:00</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Map Placeholder -->
+<div class="relative h-64 rounded-xl overflow-hidden bg-surface-container shadow-sm group">
+<img class="w-full h-full object-cover grayscale opacity-50 transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110" data-alt="abstract minimalist map of paris streets in soft muted beige and charcoal tones with a single rose gold marker" data-location="Paris" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5DcAf2jYGX1B5tTt-N5dxtqIdf9xq1vy_F6-WU7Zeyuk3I6nOnsofejZl2hbUiruDvj01fxcU42sFyCQjdCq0rAGmZmd-lBtLI1NdoE6iD5mCMNcq_by_lz8ZjK8ibdL12ibXRDIz2yOwWqxUtOm7m7cfp-h9VydceZ-zv1Knbiy62k_EZ3QLX59DaC98P9_Ogw79Vq5w76NDUNfEtqbpvm6f0lkhX4LYuwKRpgryMIvgFHnvlXXdeyZ7eNiyezpMscLqLnqj5iDd"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-surface/90 backdrop-blur-md px-6 py-3 rounded-full shadow-xl flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-weight="fill">location_on</span>
+<span class="font-bold text-xs uppercase tracking-widest text-on-surface">View on Map</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Aesthetic Decorative Section -->
+<section class="mb-24 px-8 max-w-7xl mx-auto overflow-hidden">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="h-96 rounded-xl overflow-hidden shadow-xl md:-rotate-2 hover:rotate-0 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="soft focus close-up of delicate pink peonies in a vintage ceramic vase on a sun-drenched wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrVKrA3erZ47gKlhgt161cO_3TOa6CGLN1WYsBAUGdWznUcHV6B23gezBWuBP_HA07isZt38rXiG_AVSczshKWnW08rHnNRi_3EflA3HQ1WdkPRynJqX42Zqh873LLOIC1wNr4_aguCl9pDBmIdLio9-IpTWuGQBUBN0IZhjRHZuR4uh53idaOyF5OLzz-TflvCdc1gd1TYPA2Iy1gu4Rh968mEalk9xwNTo8FZ_nQ-wexyyjhDxl3WSDhK4NOIwjnYyacJ9VXPNmz"/>
+</div>
+<div class="h-96 rounded-xl overflow-hidden shadow-xl md:translate-y-12 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="atmospheric shot of a parisian cafe interior with marble tables and hanging botanical plants in warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4ruHyED_CNGfMb00VQvzp9w-Qc2c-SJRxtEENqNSAIqcEEce_UNxKEhCR6ggunM6FeUIzNm4iyfb90Wt1L_NqgLsmJX_jQGG8ScyrfBl5Cua4-r9sD9pgnZ-NQmEOtri8XjorGB-JIq0HHDvHb567M_5ttT1OO0LLWmE0LBFTk9YHq7fiBgEpyIFhwhJa2y_tYWoihok-orQo6iPGU_TBj5PDI4qos0N1pVT0DPdd1xl8wL1auzIiEBisuWA81ydD4v1hdJXUTwyi"/>
+</div>
+<div class="h-96 rounded-xl overflow-hidden shadow-xl md:rotate-2 hover:rotate-0 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="detailed shot of high-end botanical stationary and a fountain pen on a linen tablecloth" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpaSdGvLeyHGCe2nJHleuOuuGdvBAOfg9Bsod-X2HdPxvJIdvT5p4CkKG-rvpewSwAjAmve0tOkIZwW0n0OZNXm41g3uUUFj6qni4kn-Qe_kL_yoJf68JUgb5tzL-1CTL9KBDEdx2jbA2g03nIkj2kJ2QXDpNkZUyCeeMfwCX2bHxwro6ud_O8AvG3jGNR6s4mlMoeQPorbjsh7ZhiRT1ScemnMw8es8d3U22LjEJyvnjTNwVD44Jb7t3j5CSDtC97aqaopFCSVBwZ"/>
+</div>
+</div>
+</section>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-dim dark:bg-stone-900 w-full mt-auto py-12 flex flex-col items-center gap-6 px-8">
+<a class="text-lg font-bold text-on-surface font-headline uppercase tracking-[0.2em] hover:opacity-75 transition-opacity" href="/home">Cafflora</a>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Contact Us</a>
+</div>
+<p class="text-on-surface-variant font-body text-xs uppercase tracking-widest opacity-60">© 2024 Cafflora Botanical Atelier</p>
+</footer>
+<script>
+(function () {
+    var authLinks = document.querySelectorAll('.header-auth-link');
+    var logoutBtn = document.getElementById('header-logout-btn');
+    var token = localStorage.getItem('token');
+    var userRaw = localStorage.getItem('user');
+    function firstNameFromUser(u) {
+        var name = (u && (u.full_name || u.name || '')) || '';
+        var parts = String(name).trim().split(/\s+/);
+        return parts[0] || 'Account';
+    }
+    function setSignedOut() {
+        authLinks.forEach(function (a) {
+            a.href = '/sign-in';
+            if (a.id === 'header-auth-link-drawer') {
+                var label = a.querySelector('.header-auth-label');
+                if (label) label.textContent = 'Sign In';
+            } else {
+                a.textContent = 'Sign In';
+            }
+        });
+        if (logoutBtn) logoutBtn.classList.add('hidden');
+    }
+    if (token && userRaw) {
+        try {
+            var user = JSON.parse(userRaw);
+            var fn = firstNameFromUser(user);
+            authLinks.forEach(function (a) {
+                a.href = '/profile';
+                if (a.id === 'header-auth-link-drawer') {
+                    var label = a.querySelector('.header-auth-label');
+                    if (label) label.textContent = fn;
+                } else {
+                    a.textContent = fn;
+                }
+            });
+            if (logoutBtn) {
+                logoutBtn.classList.remove('hidden');
+                logoutBtn.onclick = function () {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                    window.location.href = '/home';
+                };
+            }
+        } catch (e) {
+            setSignedOut();
+        }
+    } else {
+        setSignedOut();
+    }
+})();
+</script>
+<script>
+(function () {
+    var form = document.getElementById('contact-form');
+    var nameEl = document.getElementById('contact-name');
+    var emailEl = document.getElementById('contact-email');
+    var messageEl = document.getElementById('contact-message');
+    var submitBtn = document.getElementById('contact-submit');
+
+    function showToast(message, isError) {
+        if (typeof window.showAppToast === 'function') {
+            window.showAppToast(message, isError ? 'error' : 'success');
+            return;
+        }
+        var toast = document.createElement('div');
+        toast.className = 'fixed left-1/2 -translate-x-1/2 bottom-8 z-[120] px-6 py-4 rounded-full shadow-2xl border border-white/40 backdrop-blur-md transition-opacity duration-500 ' +
+            (isError ? 'bg-error-container text-on-error-container' : 'bg-surface-container-lowest/90 text-on-surface');
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        setTimeout(function () { toast.style.opacity = '0'; }, 2600);
+        setTimeout(function () { toast.remove(); }, 3200);
+    }
+
+    if (!form || !nameEl || !emailEl || !messageEl) return;
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var name = String(nameEl.value || '').trim();
+        var email = String(emailEl.value || '').trim();
+        var message = String(messageEl.value || '').trim();
+
+        if (!name || !email || !message) {
+            showToast('Please complete all fields before submitting.', true);
+            return;
+        }
+
+        if (submitBtn) submitBtn.disabled = true;
+        try {
+            var res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: name, email: email, message: message })
+            });
+            var payload = await res.json();
+            if (!res.ok) throw new Error(payload.error || 'Failed to submit message');
+
+            showToast('Your message has been gracefully received.', false);
+            form.reset();
+        } catch (err) {
+            console.error(err);
+            showToast(err.message || 'Unable to send message right now.', true);
+        } finally {
+            if (submitBtn) submitBtn.disabled = false;
+        }
+    });
+})();
+</script>
+<div id="legal-modal" class="hidden fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm p-4 md:p-8"><div id="legal-modal-backdrop" class="absolute inset-0" aria-hidden="true"></div><div class="relative mx-auto mt-8 md:mt-16 w-full max-w-3xl rounded-3xl bg-surface shadow-2xl shadow-black/20 overflow-hidden"><button id="legal-modal-close" type="button" class="absolute right-4 top-4 h-10 w-10 rounded-full text-on-surface-variant hover:bg-surface-container transition-colors" aria-label="Close modal"><span class="text-2xl leading-none">&times;</span></button><div class="px-6 md:px-10 pt-8 pb-6 border-b border-outline-variant/20"><h2 id="legal-modal-title" class="text-3xl md:text-4xl text-on-surface pr-12" style="font-family: 'Noto Serif', serif;">Legal Information</h2></div><div id="legal-modal-body" class="px-6 md:px-10 py-6 max-h-[65vh] overflow-y-auto text-on-surface-variant leading-relaxed space-y-4" style="font-family: 'Plus Jakarta Sans', sans-serif;"></div></div></div>
+<script>(function(){var m=document.getElementById('legal-modal'),t=document.getElementById('legal-modal-title'),b=document.getElementById('legal-modal-body'),c=document.getElementById('legal-modal-close');if(!m||!t||!b||!c)return;var r=/(privacy|terms|shipping|sustainability|refund)/i,links=Array.prototype.slice.call(document.querySelectorAll('footer a')).filter(function(l){return r.test((l.textContent||'').trim());});if(!links.length)return;function html(){return['<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere risus vel arcu feugiat, et faucibus lectus tincidunt. Curabitur aliquet, urna in tincidunt viverra, neque erat dictum sapien, vitae vehicula nulla libero et eros.</p>','<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>','<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>'].join('');}function open(title){t.textContent=title;b.innerHTML=html();m.classList.remove('hidden');document.body.classList.add('overflow-hidden');}function close(){m.classList.add('hidden');document.body.classList.remove('overflow-hidden');}links.forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();open((l.textContent||'Legal Information').trim());});});c.addEventListener('click',close);m.addEventListener('click',function(e){if(e.target===m||e.target.id==='legal-modal-backdrop')close();});})();</script>
+</body></html>
