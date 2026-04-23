@@ -442,7 +442,7 @@
         var subtotal = items.reduce(function (sum, item) { return sum + item.line_total; }, 0);
         var shipping = items.length ? SHIPPING_FEE : 0;
         var taxes = subtotal * TAX_RATE;
-        saveCheckoutSnapshot(items, { subtotal: subtotal, shipping: shipping, taxes: taxes });
+        saveCheckoutSnapshot(rawItems, { subtotal: subtotal, shipping: shipping, taxes: taxes });
         updateSummary();
     }
 
@@ -706,6 +706,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const token = localStorage.getItem('token');
 
+                const rawOrderItems = (() => {
+                    try {
+                        const localCart = JSON.parse(localStorage.getItem('cart') || 'null');
+                        if (Array.isArray(localCart)) return localCart;
+                        if (localCart && Array.isArray(localCart.items)) return localCart.items;
+                        const checkoutSnapshot = JSON.parse(localStorage.getItem('checkout_items_snapshot') || 'null');
+                        if (Array.isArray(checkoutSnapshot)) return checkoutSnapshot;
+                    } catch (_) {
+                        return [];
+                    }
+                    return [];
+                })();
+
+                const orderItems = rawOrderItems
+                    .map((item) => ({
+                        product_id: Number(item.product_id ?? item.productId ?? item.id),
+                        quantity: Number(item.quantity ?? item.qty ?? 1)
+                    }))
+                    .filter((item) => Number.isInteger(item.product_id) && item.product_id > 0 && Number.isInteger(item.quantity) && item.quantity > 0);
+
+                if (!orderItems.length) {
+                    if (typeof window.showAppToast === 'function') {
+                        window.showAppToast('Your cart has no valid order items. Please refresh and try again.', 'error');
+                    }
+                    return;
+                }
+
+                const deliveryAddress = [
+                    (document.querySelector('input[placeholder="72 Rue de Rivoli"]') || {}).value,
+                    (document.querySelector('input[placeholder="Paris"]') || {}).value,
+                    (document.querySelector('input[placeholder="75004"]') || {}).value,
+                    (document.querySelector('input[placeholder="France"]') || {}).value
+                ]
+                    .map((part) => String(part || '').trim())
+                    .filter(Boolean)
+                    .join(', ');
+
                 const orderRes = await fetch('/api/orders', {
                     method: 'POST',
                     headers: Object.assign(
@@ -713,25 +750,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         token ? { Authorization: `Bearer ${token}` } : {}
                     ),
                     body: JSON.stringify({
-                        items: (() => {
-                            // Prefer local cart, then checkout snapshot hydrated from backend cart.
-                            try {
-                                const localCart = JSON.parse(localStorage.getItem('cart') || 'null');
-                                if (Array.isArray(localCart)) return localCart;
-                                if (localCart && Array.isArray(localCart.items)) return localCart.items;
-                                const checkoutSnapshot = JSON.parse(localStorage.getItem('checkout_items_snapshot') || 'null');
-                                if (Array.isArray(checkoutSnapshot)) return checkoutSnapshot;
-                            } catch (_) {}
-                            return [];
-                        })().map((it) => ({
-                            product_id: it.product_id ?? it.productId,
-                            quantity: it.quantity,
-                            price: it.price ?? it.unit_price
-                        })),
+                        items: orderItems,
                         subtotal,
                         discount_applied: Math.abs(discountApplied),
                         shipping_fee: shippingFee,
                         total_amount: totalAmount,
+                        delivery_address: deliveryAddress,
                         payment_method: selectedPaymentMethod,
                         payment_details: paymentDetails
                     })
