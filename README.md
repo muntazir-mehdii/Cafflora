@@ -9,9 +9,19 @@
 ![Node.js](https://img.shields.io/badge/Node.js-v22+-2ea44f?style=flat-square&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/Express-v5.2+-000000?style=flat-square&logo=express&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-v8+-0051ba?style=flat-square&logo=mysql&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v3+-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-Security-E7165F?style=flat-square&logo=jsonwebtokens&logoColor=white)
 ![License](https://img.shields.io/badge/License-ISC-blue?style=flat-square)
+
+---
+
+## 🏛 Architecture: Polyglot Persistence
+
+Cafflora leverages a **Polyglot Persistence** architecture, strategically utilizing multiple database technologies to handle different data shapes and requirements. By pairing **MySQL** and **MongoDB**, we achieve the perfect balance of structural integrity and scalable flexibility:
+
+- **MySQL (Primary Database):** Ensures strict ACID compliance for our transactional and relational data. It acts as the source of truth for Users, Products, Categories, and Orders—guaranteeing data consistency where it matters most.
+- **MongoDB (Secondary Database):** Provides the schema flexibility needed for dynamic, user-generated content. We use MongoDB (via Mongoose) to handle high-volume, unstructured data like **Product Reviews & Ratings**. This keeps our relational schema lean and performant while allowing reviews to scale and evolve independently without complex migrations.
 
 ---
 
@@ -29,6 +39,11 @@
 - **Book Corner** – Curated collection of literature, art books, and wellness reads
 - Client-side filtering for instant category switching
 - Featured products showcase on home page
+
+### ⭐ **Dynamic Product Reviews (MongoDB)**
+- **Polyglot Integration** – Reviews are powered by MongoDB and Mongoose, intrinsically linked to MySQL product and user IDs.
+- **Interactive Feedback** – Users can leave 1-5 star ratings and rich text comments on individual curations.
+- **Real-Time Rendering** – Reviews are dynamically fetched and elegantly displayed on product views, adding social proof and community interaction.
 
 ### 🔐 **Secure Authentication**
 - JWT-based authentication system
@@ -80,11 +95,12 @@
 | **CORS** | Cross-origin resource sharing |
 | **dotenv** | Environment variable management |
 
-### **Database**
+### **Database (Polyglot Persistence)**
 | Technology | Purpose |
 |-----------|---------|
-| **MySQL 8+** | Relational database (connection pooling via mysql2) |
-| **Connection Pooling** | Performance optimization & resource management |
+| **MySQL 8+** | Primary Database: Handles strict relational data (Users, Products, Orders) |
+| **MongoDB** | Secondary Database: Handles unstructured, high-volume data (Reviews) |
+| **mysql2 / Mongoose** | Connection pooling and ORM/ODM integration |
 
 ### **Development Tools**
 | Tool | Purpose |

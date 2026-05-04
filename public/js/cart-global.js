@@ -200,3 +200,83 @@
     hydrateCartCount();
     hydrateMissingDataIds();
 })();
+
+// ====== MONGODB REVIEWS LOGIC ====== //
+// Note: Replace "1" with the actual dynamic Product ID based on the page you are on.
+const CURRENT_PRODUCT_ID = 1; 
+
+// 1. Fetch & Display Reviews from MongoDB
+async function loadReviews(productId) {
+  try {
+    const response = await fetch(`/api/reviews/${productId}`);
+    const data = await response.json();
+    
+    const reviewsList = document.getElementById('reviews-list');
+    reviewsList.innerHTML = ''; 
+    
+    if (data.length > 0) {
+      data.forEach(review => {
+        const stars = '⭐'.repeat(review.rating);
+        reviewsList.innerHTML += `
+          <div class="pb-4 border-b border-stone-100 last:border-0">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="font-medium text-stone-800 text-sm">${review.user_name}</span>
+              <span class="text-xs">${stars}</span>
+            </div>
+            <p class="text-stone-600 text-sm mt-1">${review.comment}</p>
+          </div>
+        `;
+      });
+    } else {
+      reviewsList.innerHTML = '<p class="text-stone-500 italic text-sm">Be the first to review this curation.</p>';
+    }
+  } catch (error) {
+    console.error("Error fetching reviews:", error);
+  }
+}
+
+// 2. Submit New Review to MongoDB
+document.getElementById('review-form')?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const rating = document.getElementById('review-rating').value;
+  const comment = document.getElementById('review-comment').value;
+  const token = localStorage.getItem('token'); // Gets JWT token from login
+  
+  if (!token) {
+    alert("Please sign in to submit a review! 🌸");
+    return;
+  }
+  
+  try {
+    const response = await fetch('/api/reviews', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` 
+      },
+      body: JSON.stringify({
+        product_id: CURRENT_PRODUCT_ID, // Use product_id for compatibility with the backend schema handling
+        rating: parseInt(rating),
+        comment: comment
+      })
+    });
+    
+    if (response.ok) {
+      document.getElementById('review-form').reset();
+      loadReviews(CURRENT_PRODUCT_ID); // Refresh list immediately
+      alert("Review posted successfully! ✨");
+    } else {
+      alert("Something went wrong. Are you logged in?");
+    }
+  } catch (error) {
+    console.error("Error posting review:", error);
+  }
+});
+
+// Load reviews when page loads
+document.addEventListener('DOMContentLoaded', () => {
+  if(document.getElementById('reviews-container')) {
+    loadReviews(CURRENT_PRODUCT_ID);
+  }
+});

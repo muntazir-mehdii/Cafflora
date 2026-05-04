@@ -6,6 +6,10 @@ require('dotenv').config();
 // This line imports db.js which immediately tests the DB connection
 const db = require('./config/db');
 
+// Connect to MongoDB for Reviews (Polyglot Persistence)
+const connectMongoDB = require('./config/mongo');
+connectMongoDB();
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -53,6 +57,7 @@ app.use('/api/discounts', require('./routes/discounts'));
 app.use('/api/orders',   require('./routes/orders'));
 app.use('/api/contact',  require('./routes/contact'));
 app.use('/api/subscribe', require('./routes/subscribe'));
+app.use('/api/reviews',   require('./routes/reviews'));
 // app.use('/api/admin',    require('./routes/admin'));
 
 // ─── Health Check Route ───────────────────────────────────
