@@ -219,6 +219,9 @@ JWT_EXPIRY=7d
 EMAIL_SERVICE=gmail
 EMAIL_USER=your_email@gmail.com
 EMAIL_PASS=your_app_password
+
+# MongoDB Connection (Secondary Database for Reviews)
+MONGO_URI=mongodb://127.0.0.1:27017/cafflora
 ```
 
 **⚠️ Important:** Never commit `.env` to version control. It's listed in `.gitignore` for security.
@@ -343,6 +346,10 @@ INSERT INTO products (name, description, price, image_url, stock_qty, category_i
 ('Café Au Lait', 'Creamy French-style coffee with milk', 6.50, '/images/au-lait.jpg', 100, 2, NULL, 1),
 ('Peony Arrangement', 'Luxe pink peonies in a ceramic vase', 45.00, '/images/peonies.jpg', 20, 3, 'FEATURED', 1),
 ('Design of Everyday Things', 'Iconic UX/design philosophy book', 18.99, '/images/don-norman.jpg', 30, 4, NULL, 1);
+
+#### **Setup Secondary Database (MongoDB for Reviews)**
+Ensure you have MongoDB running locally (via MongoDB Compass or CLI). 
+Mongoose will automatically create the `cafflora` database and the `reviews` collection upon the first review submission, provided your `MONGO_URI` is set correctly in the `.env` file. No manual schema creation is required!
 ```
 
 ### **Step 5: Run the Server**
@@ -436,6 +443,12 @@ curl "http://localhost:3000/api/products?filter=coffee"
 | `POST` | `/api/orders/create` | Create a new order | ✅ Yes |
 | `GET` | `/api/orders/my-orders` | Retrieve user's orders | ✅ Yes |
 | `GET` | `/api/orders/:orderId` | Get specific order details | ✅ Yes |
+
+### **Reviews Routes (MongoDB)**
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|----------------|
+| `GET`  | `/api/reviews/:productId` | Fetch all reviews for a product | ❌ No |
+| `POST` | `/api/reviews` | Submit a new product review | ✅ Yes |
 
 **Example Request (Create Order):**
 ```bash
